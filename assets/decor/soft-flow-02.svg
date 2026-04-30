@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 420" fill="none">
+  <defs>
+    <linearGradient id="washA" x1="100" x2="402" y1="72" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity=".88"/>
+      <stop offset=".45" stop-color="#E4F2DE" stop-opacity=".38"/>
+      <stop offset="1" stop-color="#A7CF79" stop-opacity=".14"/>
+    </linearGradient>
+    <linearGradient id="washB" x1="404" x2="152" y1="78" y2="290" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FAFEF8" stop-opacity=".72"/>
+      <stop offset=".55" stop-color="#D6EACF" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#8FB08A" stop-opacity=".1"/>
+    </linearGradient>
+    <filter id="soften" width="180%" height="180%" x="-40%" y="-40%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+  </defs>
+  <path d="M96 72C149 41 223 36 291 60C366 86 436 145 438 224C440 305 347 357 253 352C167 348 76 298 66 213C59 154 67 102 96 72Z" fill="url(#washA)" filter="url(#soften)"/>
+  <path d="M148 123C196 88 263 93 311 126C355 158 393 214 372 264C349 317 279 334 214 314C154 295 107 239 111 185C113 162 124 138 148 123Z" fill="url(#washB)" filter="url(#soften)"/>
+  <circle cx="113" cy="256" r="10" fill="#EEF9EA" fill-opacity=".38"/>
+  <circle cx="398" cy="172" r="9" fill="#BCDB8A" fill-opacity=".2"/>
+  <circle cx="198" cy="58" r="12" fill="#F8FDF7" fill-opacity=".46"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 180" fill="none">
+  <defs>
+    <linearGradient id="route" x1="44" x2="446" y1="124" y2="70" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9DB691" stop-opacity=".14"/>
+      <stop offset=".45" stop-color="#7F9E7A" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#CBE2A9" stop-opacity=".22"/>
+    </linearGradient>
+  </defs>
+  <path d="M40 126C92 124 123 60 177 58C232 56 250 128 309 128C368 128 384 56 454 56" stroke="url(#route)" stroke-dasharray="2 13" stroke-linecap="round" stroke-width="3"/>
+  <circle cx="40" cy="126" r="7" fill="#F9FDF8" fill-opacity=".82" stroke="#A9C49D" stroke-opacity=".38" stroke-width="1.2"/>
+  <circle cx="176" cy="58" r="5.5" fill="#F4FAF2" fill-opacity=".8" stroke="#9DBA92" stroke-opacity=".34" stroke-width="1.2"/>
+  <circle cx="309" cy="128" r="5.5" fill="#F4FAF2" fill-opacity=".74" stroke="#9DBA92" stroke-opacity=".34" stroke-width="1.2"/>
+  <circle cx="454" cy="56" r="8" fill="#F9FDF8" fill-opacity=".86" stroke="#B9D97E" stroke-opacity=".42" stroke-width="1.2"/>
+  <circle cx="454" cy="56" r="19" stroke="#DFF0D7" stroke-opacity=".32"/>
+  <circle cx="236" cy="103" r="8" fill="#EEF8EA" fill-opacity=".2"/>
+</svg>

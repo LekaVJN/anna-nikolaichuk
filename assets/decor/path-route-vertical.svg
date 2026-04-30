@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 520" fill="none">
+  <defs>
+    <linearGradient id="trail" x1="72" x2="148" y1="48" y2="454" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D4E9CD" stop-opacity=".18"/>
+      <stop offset=".44" stop-color="#84A17B" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#C4DD9B" stop-opacity=".18"/>
+    </linearGradient>
+  </defs>
+  <path d="M96 32C74 88 155 110 137 180C123 233 65 259 83 322C101 385 163 402 138 482" stroke="url(#trail)" stroke-dasharray="2 14" stroke-linecap="round" stroke-width="3"/>
+  <circle cx="96" cy="32" r="8" fill="#FAFEF8" fill-opacity=".84" stroke="#A9C49D" stroke-opacity=".4" stroke-width="1.2"/>
+  <circle cx="137" cy="180" r="5.5" fill="#F4FAF2" fill-opacity=".78" stroke="#9DBA92" stroke-opacity=".34" stroke-width="1.2"/>
+  <circle cx="83" cy="322" r="5.5" fill="#F4FAF2" fill-opacity=".76" stroke="#9DBA92" stroke-opacity=".34" stroke-width="1.2"/>
+  <circle cx="138" cy="482" r="8" fill="#FAFEF8" fill-opacity=".88" stroke="#B9D97E" stroke-opacity=".4" stroke-width="1.2"/>
+  <circle cx="138" cy="482" r="18" stroke="#E1F0DA" stroke-opacity=".34"/>
+  <circle cx="52" cy="240" r="10" fill="#EEF9EA" fill-opacity=".22"/>
+  <circle cx="172" cy="120" r="7" fill="#EDF8E9" fill-opacity=".28"/>
+</svg>

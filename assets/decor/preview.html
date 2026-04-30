@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decor Preview</title>
+    <style>
+      :root {
+        --bg: #fbf8f1;
+        --bg-soft: #f4efe5;
+        --text: #4a433c;
+        --line: rgba(160, 177, 148, 0.16);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(231, 242, 223, 0.6), transparent 34%),
+          linear-gradient(180deg, rgba(251, 248, 241, 0.98), rgba(244, 239, 229, 1));
+      }
+
+      main {
+        width: min(1200px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 28px 0 44px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 18px;
+      }
+
+      figure {
+        margin: 0;
+        padding: 18px;
+        border: 1px solid var(--line);
+        background: rgba(255, 253, 248, 0.62);
+      }
+
+      .stage {
+        display: grid;
+        min-height: 220px;
+        place-items: center;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 18% 20%, rgba(244, 250, 240, 0.95), transparent 32%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(247, 243, 235, 0.78));
+      }
+
+      .stage.tall {
+        min-height: 310px;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      figcaption {
+        margin-top: 10px;
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="grid">
+        <figure>
+          <div class="stage tall">
+            <img src="leaf-branch-line.svg" alt="leaf-branch-line" />
+          </div>
+          <figcaption>leaf-branch-line.svg</figcaption>
+        </figure>
+        <figure>
+          <div class="stage tall">
+            <img src="leaf-branch-soft.svg" alt="leaf-branch-soft" />
+          </div>
+          <figcaption>leaf-branch-soft.svg</figcaption>
+        </figure>
+        <figure>
+          <div class="stage">
+            <img src="soft-flow-01.svg" alt="soft-flow-01" />
+          </div>
+          <figcaption>soft-flow-01.svg</figcaption>
+        </figure>
+        <figure>
+          <div class="stage">
+            <img src="soft-flow-02.svg" alt="soft-flow-02" />
+          </div>
+          <figcaption>soft-flow-02.svg</figcaption>
+        </figure>
+        <figure>
+          <div class="stage">
+            <img src="path-route-horizontal.svg" alt="path-route-horizontal" />
+          </div>
+          <figcaption>path-route-horizontal.svg</figcaption>
+        </figure>
+        <figure>
+          <div class="stage tall">
+            <img src="path-route-vertical.svg" alt="path-route-vertical" />
+          </div>
+          <figcaption>path-route-vertical.svg</figcaption>
+        </figure>
+        <figure>
+          <div class="stage">
+            <img src="depth-circles.svg" alt="depth-circles" />
+          </div>
+          <figcaption>depth-circles.svg</figcaption>
+        </figure>
+      </div>
+    </main>
+  </body>
+</html>

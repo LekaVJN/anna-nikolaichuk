@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" fill="none">
+  <defs>
+    <radialGradient id="g1" cx="0" cy="0" r="1" gradientTransform="translate(176 126) rotate(24.112) scale(242 166)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBFEFB" stop-opacity=".92"/>
+      <stop offset=".48" stop-color="#E5F2E0" stop-opacity=".36"/>
+      <stop offset="1" stop-color="#B7D985" stop-opacity=".12"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="0" cy="0" r="1" gradientTransform="translate(438 236) rotate(151.948) scale(248 186)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity=".8"/>
+      <stop offset=".58" stop-color="#D9EBD3" stop-opacity=".26"/>
+      <stop offset="1" stop-color="#98BC91" stop-opacity=".14"/>
+    </radialGradient>
+    <filter id="blur" width="200%" height="200%" x="-50%" y="-50%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="20"/>
+    </filter>
+  </defs>
+  <path d="M67 185C101 111 168 62 251 53C330 44 389 84 456 120C515 152 567 153 614 140V298H40C37 261 47 229 67 185Z" fill="url(#g1)" filter="url(#blur)"/>
+  <path d="M154 271C216 205 273 188 336 196C410 206 459 255 533 263C569 267 599 263 624 250V360H86C87 326 109 301 154 271Z" fill="url(#g2)" filter="url(#blur)"/>
+  <circle cx="96" cy="78" r="20" fill="#EFF8EC" fill-opacity=".34"/>
+  <circle cx="548" cy="86" r="14" fill="#C7E4A8" fill-opacity=".18"/>
+  <circle cx="518" cy="290" r="12" fill="#F6FCF4" fill-opacity=".42"/>
+</svg>

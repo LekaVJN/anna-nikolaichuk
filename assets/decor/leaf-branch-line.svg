@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 360" fill="none">
+  <defs>
+    <linearGradient id="stem" x1="120" x2="120" y1="20" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A6C39D" stop-opacity=".12"/>
+      <stop offset=".52" stop-color="#87A47F" stop-opacity=".32"/>
+      <stop offset="1" stop-color="#DDEAD8" stop-opacity=".1"/>
+    </linearGradient>
+    <linearGradient id="leafFill" x1="56" x2="182" y1="60" y2="276" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FEF5" stop-opacity=".9"/>
+      <stop offset=".48" stop-color="#D7E8D0" stop-opacity=".38"/>
+      <stop offset="1" stop-color="#B9D886" stop-opacity=".18"/>
+    </linearGradient>
+  </defs>
+  <path d="M124 20C105 79 143 122 126 183C112 236 134 280 114 340" stroke="url(#stem)" stroke-linecap="round" stroke-width="2.4"/>
+  <path d="M122 78C96 55 72 59 56 92C85 99 104 93 124 79Z" fill="url(#leafFill)" stroke="#8FAE86" stroke-opacity=".32" stroke-width="1.4"/>
+  <path d="M128 122C149 95 170 92 187 116C165 130 146 131 128 122Z" fill="url(#leafFill)" stroke="#8FAE86" stroke-opacity=".28" stroke-width="1.4"/>
+  <path d="M120 182C91 162 66 167 49 194C77 204 98 201 122 183Z" fill="url(#leafFill)" stroke="#8FAE86" stroke-opacity=".24" stroke-width="1.4"/>
+  <path d="M126 232C147 210 170 208 188 230C165 244 146 243 126 232Z" fill="url(#leafFill)" stroke="#8FAE86" stroke-opacity=".24" stroke-width="1.4"/>
+  <path d="M116 286C90 268 69 270 56 294C80 302 98 300 118 287Z" fill="url(#leafFill)" stroke="#8FAE86" stroke-opacity=".22" stroke-width="1.4"/>
+  <circle cx="76" cy="50" r="6" fill="#EAF5E6" fill-opacity=".48"/>
+  <circle cx="180" cy="154" r="4" fill="#CAE3B5" fill-opacity=".32"/>
+  <circle cx="82" cy="246" r="5" fill="#EAF5E6" fill-opacity=".34"/>
+</svg>

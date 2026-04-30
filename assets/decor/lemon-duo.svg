@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 160" fill="none">
+  <defs>
+    <radialGradient id="lemonGlow" cx="0" cy="0" r="1" gradientTransform="translate(86 74) rotate(37.73) scale(90.6335 81.7614)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFDF3" stop-opacity=".96"/>
+      <stop offset=".42" stop-color="#F5F6D8" stop-opacity=".82"/>
+      <stop offset=".8" stop-color="#D2E8A4" stop-opacity=".3"/>
+      <stop offset="1" stop-color="#B8D776" stop-opacity=".16"/>
+    </radialGradient>
+    <radialGradient id="lemonGlowSmall" cx="0" cy="0" r="1" gradientTransform="translate(152 102) rotate(35.265) scale(62.2423 55.4834)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFEF7" stop-opacity=".9"/>
+      <stop offset=".45" stop-color="#F6F8DD" stop-opacity=".74"/>
+      <stop offset="1" stop-color="#CBE291" stop-opacity=".18"/>
+    </radialGradient>
+  </defs>
+  <g opacity=".88">
+    <circle cx="86" cy="74" r="50" fill="url(#lemonGlow)"/>
+    <circle cx="86" cy="74" r="44" stroke="#DCEAAE" stroke-opacity=".55" stroke-width="1.5"/>
+    <circle cx="86" cy="74" r="26" stroke="#C7DE83" stroke-opacity=".32" stroke-width="1.2"/>
+    <path d="M86 30V118" stroke="#D7E7A5" stroke-linecap="round" stroke-opacity=".34" stroke-width="1.2"/>
+    <path d="M42 74H130" stroke="#D7E7A5" stroke-linecap="round" stroke-opacity=".34" stroke-width="1.2"/>
+    <path d="M55 43L117 105" stroke="#D7E7A5" stroke-linecap="round" stroke-opacity=".34" stroke-width="1.2"/>
+    <path d="M55 105L117 43" stroke="#D7E7A5" stroke-linecap="round" stroke-opacity=".34" stroke-width="1.2"/>
+  </g>
+  <g opacity=".72">
+    <circle cx="152" cy="102" r="34" fill="url(#lemonGlowSmall)"/>
+    <circle cx="152" cy="102" r="29" stroke="#D7E8A8" stroke-opacity=".48" stroke-width="1.3"/>
+    <path d="M152 73V131" stroke="#D5E59F" stroke-linecap="round" stroke-opacity=".28" stroke-width="1.1"/>
+    <path d="M123 102H181" stroke="#D5E59F" stroke-linecap="round" stroke-opacity=".28" stroke-width="1.1"/>
+    <path d="M130 82L173 122" stroke="#D5E59F" stroke-linecap="round" stroke-opacity=".28" stroke-width="1.1"/>
+    <path d="M132 120L172 82" stroke="#D5E59F" stroke-linecap="round" stroke-opacity=".28" stroke-width="1.1"/>
+  </g>
+  <circle cx="38" cy="122" r="8" fill="#F9FEF4" fill-opacity=".44"/>
+  <circle cx="196" cy="44" r="6" fill="#D8EDAE" fill-opacity=".3"/>
+</svg>

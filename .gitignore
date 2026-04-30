@@ -1,0 +1,7 @@
+screenshots/
+test-results/
+референс/
+
+.DS_Store
+Thumbs.db
+.vscode/

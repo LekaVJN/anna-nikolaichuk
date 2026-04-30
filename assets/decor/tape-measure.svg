@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 160" fill="none">
+  <defs>
+    <linearGradient id="tapeBody" x1="44" x2="310" y1="98" y2="61" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity=".9"/>
+      <stop offset=".45" stop-color="#F0F7EC" stop-opacity=".76"/>
+      <stop offset="1" stop-color="#DCEACF" stop-opacity=".48"/>
+    </linearGradient>
+    <linearGradient id="tapeEdge" x1="62" x2="304" y1="90" y2="76" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D5E7CE" stop-opacity=".3"/>
+      <stop offset=".5" stop-color="#AFC79E" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#D5E8B1" stop-opacity=".24"/>
+    </linearGradient>
+  </defs>
+  <path d="M44 104C81 78 115 72 149 72C188 72 216 92 252 92C278 92 301 83 323 62" stroke="url(#tapeBody)" stroke-linecap="round" stroke-width="22"/>
+  <path d="M44 104C81 78 115 72 149 72C188 72 216 92 252 92C278 92 301 83 323 62" stroke="url(#tapeEdge)" stroke-linecap="round" stroke-width="24"/>
+  <path d="M64 92L64 101M82 82L82 96M100 77L100 92M118 74L118 88M136 72L136 88M154 72L154 86M172 74L172 90M190 79L190 92M208 85L208 97M226 90L226 102M244 92L244 104M262 91L262 103M280 86L280 100M298 78L298 92" stroke="#93AF86" stroke-linecap="round" stroke-opacity=".34" stroke-width="2"/>
+  <circle cx="42" cy="104" r="10" fill="#FDFEFB" fill-opacity=".86" stroke="#C8DDBD" stroke-opacity=".38"/>
+  <circle cx="323" cy="62" r="11" fill="#FBFDF9" fill-opacity=".82" stroke="#D4E7BE" stroke-opacity=".42"/>
+  <circle cx="323" cy="62" r="20" stroke="#E9F3E2" stroke-opacity=".32"/>
+</svg>

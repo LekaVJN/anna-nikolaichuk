@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 340" fill="none">
+  <defs>
+    <linearGradient id="branch" x1="166" x2="116" y1="24" y2="322" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EFF8EC" stop-opacity=".18"/>
+      <stop offset=".55" stop-color="#84A67E" stop-opacity=".3"/>
+      <stop offset="1" stop-color="#DCEAD5" stop-opacity=".12"/>
+    </linearGradient>
+    <radialGradient id="leafGlowA" cx="0" cy="0" r="1" gradientTransform="translate(80 118) rotate(47.4) scale(90.542 56.9965)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBFEFB" stop-opacity=".95"/>
+      <stop offset=".52" stop-color="#D4E8CE" stop-opacity=".46"/>
+      <stop offset="1" stop-color="#9FC087" stop-opacity=".14"/>
+    </radialGradient>
+    <radialGradient id="leafGlowB" cx="0" cy="0" r="1" gradientTransform="translate(216 216) rotate(132.871) scale(97.4927 59.9185)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FAFEF8" stop-opacity=".9"/>
+      <stop offset=".58" stop-color="#D7EFD1" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#B5D97B" stop-opacity=".16"/>
+    </radialGradient>
+  </defs>
+  <path d="M160 24C146 76 173 117 155 172C143 211 158 256 138 322" stroke="url(#branch)" stroke-linecap="round" stroke-width="2.2"/>
+  <path d="M154 86C117 56 82 62 54 104C92 120 123 114 154 86Z" fill="url(#leafGlowA)"/>
+  <path d="M161 120C194 88 228 90 256 128C220 145 190 146 161 120Z" fill="url(#leafGlowB)"/>
+  <path d="M151 178C117 151 86 154 60 188C96 201 123 201 151 178Z" fill="url(#leafGlowA)"/>
+  <path d="M157 224C188 196 220 196 246 228C214 244 186 246 157 224Z" fill="url(#leafGlowB)"/>
+  <path d="M145 270C116 246 90 248 70 275C99 287 122 286 145 270Z" fill="url(#leafGlowA)"/>
+  <path d="M58 109C89 117 120 111 147 89" stroke="#92B08A" stroke-linecap="round" stroke-opacity=".28" stroke-width="1.2"/>
+  <path d="M165 122C191 144 221 145 249 130" stroke="#92B08A" stroke-linecap="round" stroke-opacity=".22" stroke-width="1.2"/>
+  <circle cx="46" cy="96" r="7" fill="#F4FBF0" fill-opacity=".42"/>
+  <circle cx="252" cy="242" r="5" fill="#B8DB81" fill-opacity=".18"/>
+  <circle cx="118" cy="312" r="8" fill="#EEF8EA" fill-opacity=".26"/>
+</svg>
