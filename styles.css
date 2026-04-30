@@ -3,6 +3,11 @@
   --bg-soft: #f8f4eb;
   --surface: #ffffff;
   --surface-soft: #fbf8f1;
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Manrope", Arial, sans-serif;
+  --type-size-body: clamp(14px, 1.05vw, 16px);
+  --type-size-title: clamp(28px, 2.8vw, 34px);
+  --type-size-display: clamp(44px, 5vw, 60px);
   --text: #302925;
   --muted: #766f67;
   --line: #e8e3d8;
@@ -32,7 +37,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Manrope", Arial, sans-serif;
+  font-family: var(--font-body);
   color: var(--text);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(250, 247, 240, 1) 46%, rgba(255, 255, 255, 1)),
@@ -1941,6 +1946,10 @@ body.has-modal {
   align-items: start;
 }
 
+.faq-layout > .section-heading {
+  padding-top: clamp(48px, 5vw, 72px);
+}
+
 .faq-list {
   display: grid;
   gap: 12px;
@@ -2803,6 +2812,10 @@ body.policy-page::before {
     position: static;
   }
 
+  .faq-layout > .section-heading {
+    padding-top: 0;
+  }
+
   .pain-leaf {
     left: -18px;
     top: 16px;
@@ -3286,4 +3299,119 @@ body.policy-page::before {
   .footer-requisites {
     font-size: 12px;
   }
+}
+
+h1,
+h2,
+.thanks-card h1,
+.policy-card h1 {
+  font-family: var(--font-heading);
+  font-size: var(--type-size-display);
+  line-height: 1.02;
+}
+
+h3,
+.brand-name,
+.soft-statement,
+.hero-fact span,
+.panel-note,
+.accent-line,
+.step p,
+.step span,
+.about-lead,
+.thanks-subtitle,
+.story-article h2,
+.story-cta h2,
+.exit-modal-card h2 {
+  font-family: var(--font-heading);
+  font-size: var(--type-size-title) !important;
+  line-height: 1.12;
+}
+
+body,
+.brand-subtitle,
+.nav,
+.story-nav,
+.eyebrow,
+.hero-subtitle,
+.section-heading p:not(.eyebrow),
+.narrow p,
+.approach-copy p,
+.about-copy p,
+.program-copy p,
+.final-content p,
+.info-card p,
+.testimonial-card p,
+.testimonial-card span,
+.entry-card p,
+.program-list p,
+.check-panel p,
+.faq-question,
+.faq-answer p,
+.not-list span,
+.entry-tag,
+.lead-form-label,
+.lead-form-note,
+.lead-form-status,
+.lead-form-consent,
+.requisite-label,
+.requisite-value,
+.footer,
+.footer-requisites,
+.footer-requisites-title,
+.thanks-card p,
+.thanks-list li,
+.thanks-note,
+.thanks-chat-block p,
+.policy-card p,
+.policy-card li,
+.pain-item,
+.large-check-list li,
+.audience-list li,
+.button,
+.under-note,
+.hero-fact p,
+.card-number {
+  font-family: var(--font-body);
+  font-size: var(--type-size-body);
+}
+
+.brand-subtitle,
+.eyebrow,
+.footer-requisites-title,
+.testimonial-card span,
+.entry-tag,
+.not-list span,
+.hero-fact p,
+.under-note,
+.card-number {
+  line-height: 1.45;
+}
+
+.section-heading p:not(.eyebrow),
+.narrow p,
+.approach-copy p,
+.about-copy p,
+.program-copy p,
+.final-content p,
+.hero-subtitle,
+.info-card p,
+.testimonial-card p,
+.entry-card p,
+.program-list p,
+.check-panel p,
+.faq-question,
+.faq-answer p,
+.policy-card p,
+.policy-card li,
+.thanks-card p,
+.thanks-list li,
+.thanks-chat-block p,
+.lead-form-note,
+.lead-form-consent,
+.requisite-value,
+.pain-item,
+.large-check-list li,
+.audience-list li {
+  line-height: 1.65;
 }

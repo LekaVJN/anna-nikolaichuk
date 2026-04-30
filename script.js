@@ -362,7 +362,6 @@ leadForms.forEach((form) => {
 });
 
 const finePointer = window.matchMedia?.("(pointer: fine)")?.matches ?? false;
-const touchPointer = window.matchMedia?.("(pointer: coarse)")?.matches ?? false;
 let exitModalArmed = false;
 let exitModalVisible = false;
 
@@ -434,18 +433,6 @@ if (exitModal && !getExitModalSeen()) {
 
       openExitModal();
     });
-  }
-
-  if (touchPointer) {
-    const maybeOpenTouchExitModal = () => {
-      if (!exitModalArmed || exitModalVisible) return;
-      if (window.scrollY < window.innerHeight * 0.5) return;
-
-      window.removeEventListener("scroll", maybeOpenTouchExitModal);
-      openExitModal();
-    };
-
-    window.addEventListener("scroll", maybeOpenTouchExitModal, { passive: true });
   }
 
   exitModal.addEventListener("click", (event) => {
