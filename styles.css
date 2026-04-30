@@ -1697,12 +1697,18 @@ body.story-page::before {
 
 .lead-magnet-copy h3 {
   margin-top: 16px;
+  font-family: var(--font-heading);
+  font-size: var(--type-size-title) !important;
+  line-height: 1.12;
 }
 
 .lead-magnet-copy p {
   max-width: 560px;
   margin-top: 16px;
   margin-bottom: 0;
+  font-family: var(--font-body);
+  font-size: var(--type-size-body);
+  line-height: 1.65;
 }
 
 .lead-form {
@@ -1723,8 +1729,10 @@ body.story-page::before {
 }
 
 .lead-form-label {
-  font-size: 13px;
+  font-family: var(--font-body);
+  font-size: var(--type-size-body);
   font-weight: 700;
+  line-height: 1.45;
   color: #5b554d;
 }
 
@@ -1736,12 +1744,15 @@ body.story-page::before {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.94);
   color: var(--text);
-  font: inherit;
+  font-family: var(--font-body);
+  font-size: var(--type-size-body);
+  font-weight: 500;
   line-height: 1;
   transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
 .lead-form-input::placeholder {
+  font-family: var(--font-body);
   color: rgba(88, 80, 72, 0.52);
 }
 
@@ -1773,8 +1784,9 @@ body.story-page::before {
   align-items: start;
   margin-top: 2px;
   color: #74685e;
-  font-size: 12px;
-  line-height: 1.55;
+  font-family: var(--font-body);
+  font-size: var(--type-size-body);
+  line-height: 1.65;
 }
 
 .lead-form-checkbox {
@@ -1798,8 +1810,9 @@ body.story-page::before {
 .lead-form-note {
   margin: 0;
   color: var(--muted);
-  font-size: 14px;
-  line-height: 1.6;
+  font-family: var(--font-body);
+  font-size: var(--type-size-body);
+  line-height: 1.65;
 }
 
 .lead-form-note a {
@@ -1815,8 +1828,9 @@ body.story-page::before {
   margin: 0;
   padding: 12px 14px;
   border-radius: 18px;
-  font-size: 14px;
-  line-height: 1.55;
+  font-family: var(--font-body);
+  font-size: var(--type-size-body);
+  line-height: 1.65;
 }
 
 .lead-form-status.is-info {
@@ -1956,16 +1970,24 @@ body.has-modal {
 .entry-card h3 {
   max-width: 520px;
   margin-top: 16px;
+  font-family: var(--font-heading);
+  font-size: var(--type-size-title) !important;
+  line-height: 1.12;
 }
 
 .entry-card p {
   max-width: 560px;
   margin-top: 16px;
   margin-bottom: 28px;
+  font-family: var(--font-body);
+  font-size: var(--type-size-body);
+  line-height: 1.65;
 }
 
 .entry-tag {
   padding: 8px 13px;
+  font-family: var(--font-body);
+  font-size: var(--type-size-body);
   color: var(--sage-dark);
   text-transform: uppercase;
   letter-spacing: 0.04em;
