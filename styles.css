@@ -1273,10 +1273,10 @@ body.story-page::before {
 
 .step {
   display: grid;
-  grid-template-columns: 58px minmax(0, 1fr);
-  gap: 18px;
-  align-items: center;
-  padding: 20px 0;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  padding: 17px 0;
   border-bottom: 1px solid rgba(232, 222, 210, 0.92);
 }
 
@@ -1285,15 +1285,15 @@ body.story-page::before {
   font-family: var(--font-body);
   font-size: var(--type-size-body);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.65;
 }
 
 .step p {
   color: var(--text);
   font-family: var(--font-body);
-  font-size: var(--type-size-title);
+  font-size: var(--type-size-body);
   font-weight: 600;
-  line-height: 1.18;
+  line-height: 1.65;
 }
 
 .about-section {
