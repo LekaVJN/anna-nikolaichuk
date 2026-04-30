@@ -5,9 +5,9 @@
   --surface-soft: #fbf8f1;
   --font-heading: "Cormorant Garamond", Georgia, serif;
   --font-body: "Manrope", Arial, sans-serif;
-  --type-size-body: clamp(14px, 1.05vw, 16px);
-  --type-size-title: clamp(28px, 2.8vw, 34px);
-  --type-size-display: clamp(44px, 5vw, 60px);
+  --type-size-body: clamp(17px, 1.28vw, 19px);
+  --type-size-title: clamp(30px, 3vw, 36px);
+  --type-size-display: clamp(46px, 5vw, 60px);
   --text: #302925;
   --muted: #766f67;
   --line: #e8e3d8;
@@ -706,7 +706,7 @@ body.story-page::before {
 
 .story-article p {
   color: #4f463e;
-  font-size: clamp(16px, 1.45vw, 18px);
+  font-size: var(--type-size-body);
   line-height: 1.84;
 }
 
@@ -755,7 +755,8 @@ body.story-page::before {
 .story-cta p:not(.eyebrow) {
   margin-top: 16px;
   color: var(--muted);
-  font-size: 16px;
+  font-size: var(--type-size-body);
+  line-height: 1.65;
 }
 
 .story-cta .button {
@@ -884,6 +885,13 @@ body.story-page::before {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(252, 249, 243, 0.92));
 }
 
+.pain-section .section-heading h2 {
+  font-family: var(--font-heading);
+  font-size: var(--type-size-display);
+  line-height: 1.02;
+  font-weight: 600;
+}
+
 .pain-section > .container + .container {
   margin-top: clamp(42px, 5vw, 62px);
 }
@@ -972,7 +980,7 @@ body.story-page::before {
   color: #4f463e;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(28px, 3vw, 42px);
-  font-style: italic;
+  font-style: normal;
   line-height: 1.22;
   font-weight: 600;
   text-align: center;
@@ -1136,7 +1144,8 @@ body.story-page::before {
   border-radius: 0;
   background: transparent;
   color: #6b5f56;
-  font-size: clamp(15px, 1.3vw, 17px);
+  font-size: var(--type-size-body);
+  line-height: 1.65;
 }
 
 .instead-section .check-panel {
@@ -1159,6 +1168,8 @@ body.story-page::before {
 .instead-section .check-list li {
   padding: 15px 0 15px 34px;
   border-bottom: 1px solid rgba(232, 222, 210, 0.86);
+  font-size: var(--type-size-body);
+  line-height: 1.65;
 }
 
 .instead-section .check-list li::before {
@@ -1175,6 +1186,12 @@ body.story-page::before {
   margin-bottom: 18px;
   color: var(--text) !important;
   font-weight: 700;
+}
+
+.instead-section .lead {
+  font-family: var(--font-heading);
+  font-size: var(--type-size-title);
+  line-height: 1.12;
 }
 
 .check-list,
@@ -1209,16 +1226,35 @@ body.story-page::before {
   font-size: 28px !important;
   line-height: 1.18;
   font-weight: 600;
+  text-align: center;
+}
+
+.instead-summary {
+  display: grid;
+  justify-items: center;
+}
+
+.instead-summary .panel-note {
+  width: min(760px, 100%);
+  margin-top: 28px;
+}
+
+.instead-summary .section-cta-row {
+  justify-content: center;
+  margin-top: 28px;
 }
 
 .approach-section {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 251, 244, 0.74));
 }
 
+.approach-layout {
+  align-items: start;
+}
+
 .approach-copy {
   align-self: start;
-  position: sticky;
-  top: 118px;
+  position: static;
 }
 
 .accent-line {
@@ -1246,17 +1282,18 @@ body.story-page::before {
 
 .step span {
   color: var(--sage-dark);
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 28px;
-  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: var(--type-size-body);
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .step p {
   color: var(--text);
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(26px, 2.8vw, 38px);
+  font-family: var(--font-body);
+  font-size: var(--type-size-title);
   font-weight: 600;
-  line-height: 1.08;
+  line-height: 1.18;
 }
 
 .about-section {
@@ -1362,9 +1399,9 @@ body.story-page::before {
   border-radius: var(--radius);
   background: linear-gradient(145deg, rgba(255, 253, 248, 0.78), rgba(255, 247, 238, 0.5));
   color: #453d36;
-  font-size: 14px;
+  font-size: var(--type-size-body);
   font-weight: 700;
-  line-height: 1.45;
+  line-height: 1.5;
   transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
 
@@ -1407,9 +1444,9 @@ body.story-page::before {
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.62);
   color: #4a413a;
-  font-size: 14px;
+  font-size: var(--type-size-body);
   font-weight: 600;
-  line-height: 1.48;
+  line-height: 1.65;
   transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
 }
 
@@ -2448,7 +2485,7 @@ body.policy-page::before {
 .policy-card p,
 .policy-card li {
   color: #5f554d;
-  font-size: clamp(16px, 1.45vw, 18px);
+  font-size: var(--type-size-body);
   line-height: 1.75;
 }
 
@@ -2862,6 +2899,14 @@ body.policy-page::before {
   .faq-layout,
   .final-layout {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .instead-summary {
+    display: block;
+  }
+
+  .instead-summary .section-cta-row {
+    margin-top: 28px;
   }
 
   .section-heading.center {
@@ -3316,13 +3361,12 @@ h3,
 .hero-fact span,
 .panel-note,
 .accent-line,
-.step p,
-.step span,
 .about-lead,
 .thanks-subtitle,
 .story-article h2,
 .story-cta h2,
-.exit-modal-card h2 {
+.exit-modal-card h2,
+.lead {
   font-family: var(--font-heading);
   font-size: var(--type-size-title) !important;
   line-height: 1.12;
@@ -3346,6 +3390,9 @@ body,
 .entry-card p,
 .program-list p,
 .check-panel p,
+.check-list li,
+.proof-grid span,
+.proof-pills li,
 .faq-question,
 .faq-answer p,
 .not-list span,
@@ -3400,6 +3447,9 @@ body,
 .entry-card p,
 .program-list p,
 .check-panel p,
+.check-list li,
+.proof-grid span,
+.proof-pills li,
 .faq-question,
 .faq-answer p,
 .policy-card p,
@@ -3414,4 +3464,14 @@ body,
 .large-check-list li,
 .audience-list li {
   line-height: 1.65;
+}
+
+.about-copy .about-lead,
+.approach-copy .accent-line,
+.check-panel .lead,
+.program-list .lead,
+.thanks-card .thanks-subtitle {
+  font-family: var(--font-heading);
+  font-size: var(--type-size-title) !important;
+  line-height: 1.12;
 }
