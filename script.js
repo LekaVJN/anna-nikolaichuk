@@ -364,32 +364,15 @@ leadForms.forEach((form) => {
 const finePointer = window.matchMedia?.("(pointer: fine)")?.matches ?? false;
 let exitModalArmed = false;
 let exitModalVisible = false;
-
-const getExitModalSeen = () => {
-  if (!exitModal) return true;
-
-  try {
-    return sessionStorage.getItem(exitModal.dataset.exitModalKey || "anna-exit-site") === "seen";
-  } catch {
-    return false;
-  }
-};
-
-const setExitModalSeen = () => {
-  if (!exitModal) return;
-
-  try {
-    sessionStorage.setItem(exitModal.dataset.exitModalKey || "anna-exit-site", "seen");
-  } catch {}
-};
+let exitModalShown = false;
 
 const openExitModal = () => {
-  if (!exitModal || exitModalVisible || getExitModalSeen()) return;
+  if (!exitModal || exitModalVisible || exitModalShown) return;
 
   exitModal.hidden = false;
   exitModalVisible = true;
+  exitModalShown = true;
   document.body.classList.add("has-modal");
-  setExitModalSeen();
   window.requestAnimationFrame(() => {
     exitModal.classList.add("is-visible");
   });
@@ -408,29 +391,26 @@ const closeExitModal = () => {
   }, 220);
 };
 
-if (exitModal && !getExitModalSeen()) {
+const matchesExitIntent = (event) => {
+  if (!finePointer || !exitModalArmed || exitModalVisible || exitModalShown) return false;
+  if (event.relatedTarget) return false;
+  if (typeof event.clientY === "number" && event.clientY > 24) return false;
+  return true;
+};
+
+if (exitModal) {
   window.setTimeout(() => {
     exitModalArmed = true;
-  }, 4000);
+  }, 1200);
 
   if (finePointer) {
     document.addEventListener("mouseout", (event) => {
-      if (
-        !exitModalArmed ||
-        exitModalVisible ||
-        event.relatedTarget ||
-        event.clientY > 16
-      ) {
-        return;
-      }
-
+      if (!matchesExitIntent(event)) return;
       openExitModal();
     });
 
     document.documentElement.addEventListener("mouseleave", (event) => {
-      if (!exitModalArmed || exitModalVisible) return;
-      if (typeof event.clientY === "number" && event.clientY > 24) return;
-
+      if (!matchesExitIntent(event)) return;
       openExitModal();
     });
   }
