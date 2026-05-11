@@ -1,8 +1,7 @@
-const DEFAULT_SHEET_ID = "1IDBADaXdqf6JUpWXLODf9aEU0L8vNG2kUho4cpRCrn8";
-const DEFAULT_SHEET_NAME = "Лиды";
-const DEFAULT_LEAD_MAGNET_URL =
-  "https://drive.google.com/file/d/1FPlYttRQTvp11Vh5V3995UVnbMBUOKZ8/view?usp=drive_link";
-const LEAD_HEADERS = ["Дата", "Email", "Источник", "Материал", "Согласие на рассылку"];
+var DEFAULT_SHEET_ID = "1IDBADaXdqf6JUpWXLODf9aEU0L8vNG2kUho4cpRCrn8";
+var DEFAULT_SHEET_NAME = "Лиды";
+var DEFAULT_LEAD_MAGNET_URL = "https://drive.google.com/file/d/1FPlYttRQTvp11Vh5V3995UVnbMBUOKZ8/view?usp=drive_link";
+var LEAD_HEADERS = ["Дата", "Email", "Источник", "Материал", "Согласие на рассылку"];
 
 function doGet() {
   return ContentService.createTextOutput("Lead bridge is running.");
@@ -10,15 +9,15 @@ function doGet() {
 
 function doPost(e) {
   try {
-    const params = normalizeParams_(e);
+    var params = normalizeParams_(e);
     validateLead_(params);
 
-    const lead = {
+    var lead = {
       date: params.submitted_at || formatLeadDate_(new Date()),
       email: params.email,
       source: params.source || "",
       material: params.lead_magnet || "",
-      mailingConsent: params.marketing_mailing_consent === "accepted" ? "Да" : "Нет",
+      mailingConsent: params.marketing_mailing_consent === "accepted" ? "Да" : "Нет"
     };
 
     appendLeadToSheet_(lead);
@@ -35,10 +34,10 @@ function doPost(e) {
 }
 
 function normalizeParams_(e) {
-  const raw = (e && e.parameter) || {};
-  const params = {};
+  var raw = (e && e.parameter) || {};
+  var params = {};
 
-  Object.keys(raw).forEach((key) => {
+  Object.keys(raw).forEach(function (key) {
     params[key] = String(raw[key] || "").trim();
   });
 
@@ -56,16 +55,16 @@ function validateLead_(params) {
 }
 
 function appendLeadToSheet_(lead) {
-  const sheet = getLeadSheet_();
+  var sheet = getLeadSheet_();
   ensureSheetHeader_(sheet);
   sheet.appendRow([lead.date, lead.email, lead.source, lead.material, lead.mailingConsent]);
 }
 
 function sendLeadMagnetEmail_(lead) {
-  const leadMagnetUrl = getLeadMagnetUrl_();
-  const materialName = lead.material || "разбор";
-  const subject = "Ваш разбор от Анны Николаичук";
-  const plainBody = [
+  var leadMagnetUrl = getLeadMagnetUrl_();
+  var materialName = lead.material || "разбор";
+  var subject = "Ваш разбор от Анны Николаичук";
+  var plainBody = [
     "Здравствуйте!",
     "",
     "Спасибо, что оставили заявку на сайте.",
@@ -79,7 +78,7 @@ function sendLeadMagnetEmail_(lead) {
     "С теплом,",
     "Анна Николаичук",
   ].join("\n");
-  const htmlBody = [
+  var htmlBody = [
     '<div style="font-family:Arial,sans-serif;line-height:1.6;color:#2f2924;">',
     "<p>Здравствуйте!</p>",
     "<p>Спасибо, что оставили заявку на сайте.</p>",
@@ -101,25 +100,25 @@ function sendLeadMagnetEmail_(lead) {
     subject: subject,
     body: plainBody,
     htmlBody: htmlBody,
-    name: "Анна Николаичук",
+    name: "Анна Николаичук"
   });
 }
 
 function getLeadMagnetUrl_() {
-  const properties = PropertiesService.getScriptProperties();
+  var properties = PropertiesService.getScriptProperties();
   return properties.getProperty("LEAD_MAGNET_URL") || DEFAULT_LEAD_MAGNET_URL;
 }
 
 function getLeadSheet_() {
-  const properties = PropertiesService.getScriptProperties();
-  const sheetId = properties.getProperty("SHEET_ID") || DEFAULT_SHEET_ID;
-  const sheetName = properties.getProperty("SHEET_NAME") || DEFAULT_SHEET_NAME;
+  var properties = PropertiesService.getScriptProperties();
+  var sheetId = properties.getProperty("SHEET_ID") || DEFAULT_SHEET_ID;
+  var sheetName = properties.getProperty("SHEET_NAME") || DEFAULT_SHEET_NAME;
 
   if (!sheetId) {
     throw new Error("Не задан ID Google Таблицы.");
   }
 
-  const spreadsheet = SpreadsheetApp.openById(sheetId);
+  var spreadsheet = SpreadsheetApp.openById(sheetId);
   return spreadsheet.getSheetByName(sheetName) || spreadsheet.insertSheet(sheetName);
 }
 
@@ -130,8 +129,8 @@ function ensureSheetHeader_(sheet) {
     return;
   }
 
-  const headerRange = sheet.getRange(1, 1, 1, Math.max(sheet.getLastColumn(), 1));
-  const currentHeaders = headerRange.getValues()[0].map(function (header) {
+  var headerRange = sheet.getRange(1, 1, 1, Math.max(sheet.getLastColumn(), 1));
+  var currentHeaders = headerRange.getValues()[0].map(function (header) {
     return String(header || "").trim();
   });
 
@@ -143,13 +142,13 @@ function ensureSheetHeader_(sheet) {
 }
 
 function sendTelegramNotification_(lead) {
-  const properties = PropertiesService.getScriptProperties();
-  const botToken = properties.getProperty("TELEGRAM_BOT_TOKEN");
-  const chatId = properties.getProperty("TELEGRAM_CHAT_ID");
+  var properties = PropertiesService.getScriptProperties();
+  var botToken = properties.getProperty("TELEGRAM_BOT_TOKEN");
+  var chatId = properties.getProperty("TELEGRAM_CHAT_ID");
 
   if (!botToken || !chatId) return;
 
-  const response = UrlFetchApp.fetch(
+  var response = UrlFetchApp.fetch(
     "https://api.telegram.org/bot" + botToken + "/sendMessage",
     {
       method: "post",
@@ -162,9 +161,9 @@ function sendTelegramNotification_(lead) {
           " | " +
           lead.date +
           " | рассылка: " +
-          lead.mailingConsent,
+          lead.mailingConsent
       }),
-      muteHttpExceptions: true,
+      muteHttpExceptions: true
     }
   );
 
@@ -174,9 +173,9 @@ function sendTelegramNotification_(lead) {
 }
 
 function createRedirectHtml_(redirectUrl, message) {
-  const safeMessage = escapeHtml_(message);
-  const safeUrl = redirectUrl ? String(redirectUrl).trim() : "";
-  const redirectMarkup = safeUrl
+  var safeMessage = escapeHtml_(message);
+  var safeUrl = redirectUrl ? String(redirectUrl).trim() : "";
+  var redirectMarkup = safeUrl
     ? [
         '<meta http-equiv="refresh" content="0; url=' + escapeHtmlAttribute_(safeUrl) + '">',
         "<script>",
@@ -209,7 +208,7 @@ function createRedirectHtml_(redirectUrl, message) {
 }
 
 function createErrorHtml_(error) {
-  const message = escapeHtml_(
+  var message = escapeHtml_(
     error && error.message ? error.message : "Не удалось обработать форму."
   );
 
@@ -252,3 +251,4 @@ function escapeHtml_(value) {
 function escapeHtmlAttribute_(value) {
   return escapeHtml_(value);
 }
+
