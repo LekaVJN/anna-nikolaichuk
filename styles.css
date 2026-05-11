@@ -1898,6 +1898,61 @@ body.story-page::before {
   color: #8b4d47;
 }
 
+.cookie-notice {
+  position: fixed;
+  right: clamp(14px, 3vw, 34px);
+  bottom: clamp(14px, 3vw, 34px);
+  z-index: 90;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  width: min(620px, calc(100vw - 28px));
+  padding: 18px;
+  border: 1px solid rgba(223, 232, 216, 0.96);
+  border-radius: 24px;
+  background: rgba(255, 253, 248, 0.96);
+  box-shadow: 0 20px 48px rgba(75, 58, 44, 0.16);
+  backdrop-filter: blur(14px);
+}
+
+.cookie-notice p {
+  margin: 0;
+  color: #5f554d;
+  font-family: var(--font-body);
+  font-size: var(--type-size-small);
+  line-height: 1.55;
+}
+
+.cookie-notice a {
+  color: var(--sage-dark);
+  font-weight: 700;
+}
+
+.cookie-notice a:hover {
+  color: #6a4f4a;
+}
+
+.cookie-notice-button {
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid #2f2924;
+  border-radius: 999px;
+  background: #2f2924;
+  color: #fffaf1;
+  font-family: var(--font-body);
+  font-size: var(--type-size-small);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.cookie-notice-button:hover {
+  transform: translateY(-1px);
+  background: #44372f;
+  box-shadow: 0 10px 20px rgba(75, 58, 44, 0.16);
+}
+
 .changes-section .section-heading {
   margin-bottom: 8px;
 }
@@ -2554,11 +2609,32 @@ body.policy-page::before {
   margin-bottom: 0;
 }
 
+.policy-card h2 {
+  margin: 32px 0 0;
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--sage-dark);
+}
+
 .policy-card p,
 .policy-card li {
   color: #5f554d;
   font-size: var(--type-size-body);
   line-height: 1.75;
+}
+
+.policy-card a {
+  color: var(--sage-dark);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.policy-card a:hover {
+  color: #6a4f4a;
 }
 
 .policy-card p + p,
@@ -3190,6 +3266,17 @@ body.policy-page::before {
 
   .lead-form-input {
     min-height: 54px;
+  }
+
+  .cookie-notice {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .cookie-notice-button {
+    width: 100%;
   }
 
   .section-cta-row .button {

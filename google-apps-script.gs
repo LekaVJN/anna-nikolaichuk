@@ -1,6 +1,6 @@
 const DEFAULT_SHEET_ID = "1IDBADaXdqf6JUpWXLODf9aEU0L8vNG2kUho4cpRCrn8";
 const DEFAULT_SHEET_NAME = "Лиды";
-const LEAD_HEADERS = ["Дата", "Email", "Источник", "Материал"];
+const LEAD_HEADERS = ["Дата", "Email", "Источник", "Материал", "Согласие на рассылку"];
 
 function doGet() {
   return ContentService.createTextOutput("Lead bridge is running.");
@@ -16,6 +16,7 @@ function doPost(e) {
       email: params.email,
       source: params.source || "",
       material: params.lead_magnet || "",
+      mailingConsent: params.marketing_mailing_consent === "accepted" ? "Да" : "Нет",
     };
 
     appendLeadToSheet_(lead);
@@ -54,7 +55,7 @@ function validateLead_(params) {
 function appendLeadToSheet_(lead) {
   const sheet = getLeadSheet_();
   ensureSheetHeader_(sheet);
-  sheet.appendRow([lead.date, lead.email, lead.source, lead.material]);
+  sheet.appendRow([lead.date, lead.email, lead.source, lead.material, lead.mailingConsent]);
 }
 
 function getLeadSheet_() {
@@ -71,10 +72,22 @@ function getLeadSheet_() {
 }
 
 function ensureSheetHeader_(sheet) {
-  if (sheet.getLastRow() > 0) return;
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(LEAD_HEADERS);
+    sheet.setFrozenRows(1);
+    return;
+  }
 
-  sheet.appendRow(LEAD_HEADERS);
-  sheet.setFrozenRows(1);
+  const headerRange = sheet.getRange(1, 1, 1, Math.max(sheet.getLastColumn(), 1));
+  const currentHeaders = headerRange.getValues()[0].map(function (header) {
+    return String(header || "").trim();
+  });
+
+  LEAD_HEADERS.forEach(function (header, index) {
+    if (currentHeaders[index] !== header) {
+      sheet.getRange(1, index + 1).setValue(header);
+    }
+  });
 }
 
 function sendTelegramNotification_(lead) {
@@ -91,7 +104,13 @@ function sendTelegramNotification_(lead) {
       contentType: "application/json; charset=utf-8",
       payload: JSON.stringify({
         chat_id: chatId,
-        text: "Новый лид: " + lead.email + " | " + lead.date,
+        text:
+          "Новый лид: " +
+          lead.email +
+          " | " +
+          lead.date +
+          " | рассылка: " +
+          lead.mailingConsent,
       }),
       muteHttpExceptions: true,
     }

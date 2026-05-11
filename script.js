@@ -4,6 +4,7 @@ const faq = document.querySelector("[data-faq]");
 const leadForms = document.querySelectorAll("[data-lead-form]");
 const exitModal = document.querySelector("[data-exit-modal]");
 const siteConfig = window.ANNA_SITE_CONFIG || {};
+const cookieNoticeStorageKey = "annaCookieNoticeAccepted";
 const pendingRevealItems = new Set(revealItems);
 let instantRevealTimer = 0;
 
@@ -360,6 +361,43 @@ leadForms.forEach((form) => {
     }
   });
 });
+
+const readCookieNoticeAccepted = () => {
+  try {
+    return window.localStorage?.getItem(cookieNoticeStorageKey) === "true";
+  } catch {
+    return false;
+  }
+};
+
+const acceptCookieNotice = (notice) => {
+  try {
+    window.localStorage?.setItem(cookieNoticeStorageKey, "true");
+  } catch {
+    // The notice can still close when storage is unavailable.
+  }
+
+  notice?.remove();
+};
+
+if (!readCookieNoticeAccepted()) {
+  const cookieNotice = document.createElement("div");
+  cookieNotice.className = "cookie-notice";
+  cookieNotice.setAttribute("role", "status");
+  cookieNotice.innerHTML = [
+    "<p>",
+    "Мы используем cookie, чтобы сайт работал корректно, а также для аналитики и улучшения материалов. ",
+    '<a href="privacy.html">Подробнее в политике конфиденциальности</a>.',
+    "</p>",
+    '<button class="cookie-notice-button" type="button" data-accept-cookies>Понятно</button>',
+  ].join("");
+
+  cookieNotice.querySelector("[data-accept-cookies]")?.addEventListener("click", () => {
+    acceptCookieNotice(cookieNotice);
+  });
+
+  document.body.append(cookieNotice);
+}
 
 const finePointer = window.matchMedia?.("(pointer: fine)")?.matches ?? false;
 let exitModalArmed = false;
