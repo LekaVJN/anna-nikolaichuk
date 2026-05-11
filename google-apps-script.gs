@@ -1,5 +1,7 @@
 const DEFAULT_SHEET_ID = "1IDBADaXdqf6JUpWXLODf9aEU0L8vNG2kUho4cpRCrn8";
 const DEFAULT_SHEET_NAME = "Лиды";
+const DEFAULT_LEAD_MAGNET_URL =
+  "https://drive.google.com/file/d/1FPlYttRQTvp11Vh5V3995UVnbMBUOKZ8/view?usp=drive_link";
 const LEAD_HEADERS = ["Дата", "Email", "Источник", "Материал", "Согласие на рассылку"];
 
 function doGet() {
@@ -20,6 +22,7 @@ function doPost(e) {
     };
 
     appendLeadToSheet_(lead);
+    sendLeadMagnetEmail_(lead);
     sendTelegramNotification_(lead);
 
     return createRedirectHtml_(
@@ -56,6 +59,55 @@ function appendLeadToSheet_(lead) {
   const sheet = getLeadSheet_();
   ensureSheetHeader_(sheet);
   sheet.appendRow([lead.date, lead.email, lead.source, lead.material, lead.mailingConsent]);
+}
+
+function sendLeadMagnetEmail_(lead) {
+  const leadMagnetUrl = getLeadMagnetUrl_();
+  const materialName = lead.material || "разбор";
+  const subject = "Ваш разбор от Анны Николаичук";
+  const plainBody = [
+    "Здравствуйте!",
+    "",
+    "Спасибо, что оставили заявку на сайте.",
+    "Ваш материал: " + materialName,
+    "",
+    "Открыть разбор можно по ссылке:",
+    leadMagnetUrl,
+    "",
+    "Если письмо попало не туда, добавьте этот адрес в контакты, чтобы не потерять следующие материалы.",
+    "",
+    "С теплом,",
+    "Анна Николаичук",
+  ].join("\n");
+  const htmlBody = [
+    '<div style="font-family:Arial,sans-serif;line-height:1.6;color:#2f2924;">',
+    "<p>Здравствуйте!</p>",
+    "<p>Спасибо, что оставили заявку на сайте.</p>",
+    "<p>Ваш материал: <strong>" + escapeHtml_(materialName) + "</strong></p>",
+    '<p><a href="' +
+      escapeHtmlAttribute_(leadMagnetUrl) +
+      '" style="display:inline-block;padding:12px 18px;border-radius:999px;background:#2f2924;color:#fffaf1;text-decoration:none;font-weight:700;">Открыть разбор</a></p>',
+    '<p>Если кнопка не открывается, скопируйте ссылку:<br><a href="' +
+      escapeHtmlAttribute_(leadMagnetUrl) +
+      '">' +
+      escapeHtml_(leadMagnetUrl) +
+      "</a></p>",
+    "<p>С теплом,<br>Анна Николаичук</p>",
+    "</div>",
+  ].join("");
+
+  MailApp.sendEmail({
+    to: lead.email,
+    subject: subject,
+    body: plainBody,
+    htmlBody: htmlBody,
+    name: "Анна Николаичук",
+  });
+}
+
+function getLeadMagnetUrl_() {
+  const properties = PropertiesService.getScriptProperties();
+  return properties.getProperty("LEAD_MAGNET_URL") || DEFAULT_LEAD_MAGNET_URL;
 }
 
 function getLeadSheet_() {

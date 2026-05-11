@@ -1,4 +1,4 @@
-# Подключение формы к Google Sheets и Telegram
+# Подключение формы к Google Sheets, Telegram и отправке лид-магнита
 
 В проекте уже готово всё со стороны сайта. Осталось один раз настроить Google Apps Script и вставить его URL в конфиг.
 
@@ -29,8 +29,17 @@ https://docs.google.com/spreadsheets/d/SHEET_ID/edit#gid=0
 
 - `SHEET_ID` — ID вашей Google Таблицы
 - `SHEET_NAME` — имя листа, например `Лиды`
+- `LEAD_MAGNET_URL` — ссылка на лид-магнит, если нужно заменить ссылку из кода
 - `TELEGRAM_BOT_TOKEN` — токен бота
 - `TELEGRAM_CHAT_ID` — ID чата или канала для уведомлений
+
+Лид-магнит уже прописан в коде:
+
+```text
+https://drive.google.com/file/d/1FPlYttRQTvp11Vh5V3995UVnbMBUOKZ8/view?usp=drive_link
+```
+
+В Google Drive у файла должен быть доступ `Все, у кого есть ссылка`, иначе пользователи не смогут открыть материал из письма.
 
 ## 4. Опубликуйте Web App
 
@@ -56,6 +65,7 @@ window.ANNA_SITE_CONFIG = {
 
 - при отправке формы создаётся новая строка в Google Sheets
 - записываются `Дата`, `Email`, `Источник`, `Материал`
+- пользователю автоматически отправляется письмо со ссылкой на лид-магнит
 - в Telegram уходит сообщение:
 
 ```text
