@@ -1,5 +1,6 @@
 window.ANNA_SITE_CONFIG = {
-  leadFormEndpoint: "",
+  leadFormEndpoint:
+    "https://script.google.com/macros/s/AKfycbxxVamNlNxUMNbm_U4_7VdVZRMr4uvulWk8CnAy4OtdVTUu0W7n_4tneMmLohY6g9Hw4w/exec",
   leadFormRedirect: "thanks.html",
 };
 
