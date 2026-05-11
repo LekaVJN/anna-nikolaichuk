@@ -5,6 +5,8 @@ const leadForms = document.querySelectorAll("[data-lead-form]");
 const exitModal = document.querySelector("[data-exit-modal]");
 const siteConfig = window.ANNA_SITE_CONFIG || {};
 const cookieNoticeStorageKey = "annaCookieNoticeAccepted";
+const metrikaCounterId = 109141188;
+const leadFormGoalParam = "lead_form_submit";
 const pendingRevealItems = new Set(revealItems);
 let instantRevealTimer = 0;
 
@@ -67,6 +69,41 @@ const syncReveals = () => {
     }
   });
 };
+
+const reachMetrikaGoal = (goalName) => {
+  if (typeof window.ym !== "function") return;
+
+  window.ym(metrikaCounterId, "reachGoal", goalName);
+};
+
+const appendUrlParam = (url, key, value) => {
+  const nextUrl = new URL(url, window.location.href);
+  nextUrl.searchParams.set(key, value);
+  return nextUrl.toString();
+};
+
+const maxChatGoalLabels = new Set([
+  "Хочу доступ в секретный чат",
+  "Перейти в чат",
+  "Узнать подробности",
+  "Узнать про систему",
+  "Узнать новый подход",
+  "Выстроить путь",
+  "Узнать про сопровождение",
+]);
+
+document.querySelectorAll('a[href*="max.ru/join"]').forEach((link) => {
+  const label = link.textContent.trim().replace(/\s+/g, " ");
+  if (!maxChatGoalLabels.has(label)) return;
+
+  link.addEventListener("click", () => {
+    reachMetrikaGoal("max_chat_click");
+  });
+});
+
+if (new URLSearchParams(window.location.search).has(leadFormGoalParam)) {
+  reachMetrikaGoal("lead_form_submit");
+}
 
 syncHeader();
 syncReveals();
@@ -288,7 +325,11 @@ leadForms.forEach((form) => {
     }
 
     const endpoint = resolveFormEndpoint(form);
-    const previewRedirect = new URL(resolveSuccessRedirect(form), window.location.href).toString();
+    const previewRedirect = appendUrlParam(
+      resolveSuccessRedirect(form),
+      leadFormGoalParam,
+      "1"
+    );
     if (!endpoint) {
       window.location.href = previewRedirect;
       return;
