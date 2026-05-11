@@ -101,6 +101,12 @@ document.querySelectorAll('a[href*="max.ru/join"]').forEach((link) => {
   });
 });
 
+document.querySelectorAll('a[href*="t.me/"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    reachMetrikaGoal("telegram_click");
+  });
+});
+
 if (new URLSearchParams(window.location.search).has(leadFormGoalParam)) {
   reachMetrikaGoal("lead_form_submit");
 }
