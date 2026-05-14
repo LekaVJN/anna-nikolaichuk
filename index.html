@@ -15,6 +15,39 @@
       rel="stylesheet"
     />
     <link rel="icon" type="image/svg+xml" href="foto/лого.svg" />
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+      (function (m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+          if (document.scripts[j].src === r) {
+            return;
+          }
+        }
+        (k = e.createElement(t)),
+          (a = e.getElementsByTagName(t)[0]),
+          (k.async = 1),
+          (k.src = r),
+          a.parentNode.insertBefore(k, a);
+      })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=109141188", "ym");
+
+      ym(109141188, "init", {
+        ssr: true,
+        webvisor: true,
+        clickmap: true,
+        ecommerce: "dataLayer",
+        referrer: document.referrer,
+        url: location.href,
+        accurateTrackBounce: true,
+        trackLinks: true,
+      });
+    </script>
+    <!-- /Yandex.Metrika counter -->
     <style>
       :root {
         --bg: #fbf9ff;
@@ -2267,6 +2300,15 @@
     </style>
   </head>
   <body>
+    <noscript>
+      <div>
+        <img
+          src="https://mc.yandex.ru/watch/109141188"
+          style="position: absolute; left: -9999px"
+          alt=""
+        />
+      </div>
+    </noscript>
     <div class="page" id="top">
       <header class="site-header">
         <div class="container header-inner">
@@ -2724,16 +2766,23 @@
       const sitePopup = document.querySelector("[data-site-popup]");
       const sitePopupStorageKey = "annaSitePopupShownViolet2";
       const cookieNoticeStorageKey = "annaCookieNoticeAcceptedViolet2";
+      const metrikaCounterId = 109141188;
       const leadEmailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
       const padDatePart = (value) => String(value).padStart(2, "0");
       const formatSubmittedAt = (date = new Date()) =>
         `${date.getFullYear()}-${padDatePart(date.getMonth() + 1)}-${padDatePart(date.getDate())} ${padDatePart(date.getHours())}:${padDatePart(date.getMinutes())}:${padDatePart(date.getSeconds())}`;
+
+      const reachGoal = (goalName, params = {}) => {
+        if (typeof window.ym !== "function") return;
+        window.ym(metrikaCounterId, "reachGoal", goalName, params);
+      };
 
       const openChatChoice = () => {
         chatChoice?.classList.add("is-visible");
         chatChoice?.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
         chatChoice?.querySelector("a")?.focus();
+        reachGoal("chat_choice_open");
       };
 
       const closeChatChoice = () => {
@@ -2773,6 +2822,7 @@
         sitePopup.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
         sitePopup.querySelector("a, button")?.focus();
+        reachGoal("exit_popup_open");
       };
 
       const closeSitePopup = () => {
@@ -2812,10 +2862,53 @@
         ].join("");
         cookieNotice.querySelector("[data-accept-cookies]")?.addEventListener("click", () => {
           setStoredFlag(cookieNoticeStorageKey);
+          reachGoal("cookie_accept");
           cookieNotice.remove();
         });
         document.body.append(cookieNotice);
       }
+
+      document.addEventListener("click", (event) => {
+        const target = event.target.closest("a, button");
+        if (!target) return;
+
+        if (target.matches("[data-review-open]")) {
+          reachGoal("review_open");
+          return;
+        }
+
+        if (target.matches("[data-site-popup-close]")) {
+          reachGoal("exit_popup_close");
+          return;
+        }
+
+        if (target.matches("[data-chat-choice-close]")) {
+          reachGoal("chat_choice_close");
+          return;
+        }
+
+        if (target.matches('[type="submit"]') && target.closest("[data-final-lead-form]")) {
+          reachGoal("lead_form_submit_attempt");
+          return;
+        }
+
+        const href = target.getAttribute("href") || "";
+        if (!href) return;
+
+        if (href.includes("max.ru/join")) {
+          reachGoal("max_chat_click");
+        } else if (href.includes("t.me/")) {
+          reachGoal("telegram_click");
+        } else if (href === "#final") {
+          reachGoal("cta_to_final");
+        } else if (href.includes("story.html")) {
+          reachGoal("story_click");
+        } else if (href.includes("privacy.html")) {
+          reachGoal("privacy_click");
+        } else if (href.includes("personal-data-consent.html")) {
+          reachGoal("personal_data_consent_click");
+        }
+      });
 
       finalLeadForm?.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -2856,6 +2949,7 @@
         sessionStorage.setItem("annaLeadName", name);
         sessionStorage.setItem("annaLeadEmail", email);
         finalFormStatus.textContent = "Готово. Сейчас откроется выбор чата.";
+        reachGoal("lead_form_submit");
         openChatChoice();
 
         submitButton?.setAttribute("disabled", "true");

@@ -70,10 +70,10 @@ const syncReveals = () => {
   });
 };
 
-const reachMetrikaGoal = (goalName) => {
+const reachMetrikaGoal = (goalName, params = {}) => {
   if (typeof window.ym !== "function") return;
 
-  window.ym(metrikaCounterId, "reachGoal", goalName);
+  window.ym(metrikaCounterId, "reachGoal", goalName, params);
 };
 
 const appendUrlParam = (url, key, value) => {
@@ -82,20 +82,7 @@ const appendUrlParam = (url, key, value) => {
   return nextUrl.toString();
 };
 
-const maxChatGoalLabels = new Set([
-  "Хочу доступ в секретный чат",
-  "Перейти в чат",
-  "Узнать подробности",
-  "Узнать про систему",
-  "Узнать новый подход",
-  "Выстроить путь",
-  "Узнать про сопровождение",
-]);
-
 document.querySelectorAll('a[href*="max.ru/join"]').forEach((link) => {
-  const label = link.textContent.trim().replace(/\s+/g, " ");
-  if (!maxChatGoalLabels.has(label)) return;
-
   link.addEventListener("click", () => {
     reachMetrikaGoal("max_chat_click");
   });
@@ -104,6 +91,24 @@ document.querySelectorAll('a[href*="max.ru/join"]').forEach((link) => {
 document.querySelectorAll('a[href*="t.me/"]').forEach((link) => {
   link.addEventListener("click", () => {
     reachMetrikaGoal("telegram_click");
+  });
+});
+
+document.querySelectorAll('a[href*="story.html"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    reachMetrikaGoal("story_click");
+  });
+});
+
+document.querySelectorAll('a[href*="privacy.html"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    reachMetrikaGoal("privacy_click");
+  });
+});
+
+document.querySelectorAll('a[href*="personal-data-consent.html"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    reachMetrikaGoal("personal_data_consent_click");
   });
 });
 
@@ -356,6 +361,7 @@ leadForms.forEach((form) => {
     if (submittedAtInput) submittedAtInput.value = formatLeadTimestamp();
     if (redirectUrlInput) redirectUrlInput.value = successRedirect;
 
+    reachMetrikaGoal("lead_form_submit");
     submitButton?.setAttribute("disabled", "true");
     if (submitButton) submitButton.textContent = "Отправляем...";
     setLeadFormStatus(form);
@@ -440,6 +446,7 @@ if (!readCookieNoticeAccepted()) {
   ].join("");
 
   cookieNotice.querySelector("[data-accept-cookies]")?.addEventListener("click", () => {
+    reachMetrikaGoal("cookie_accept");
     acceptCookieNotice(cookieNotice);
   });
 
@@ -458,6 +465,7 @@ const openExitModal = () => {
   exitModalVisible = true;
   exitModalShown = true;
   document.body.classList.add("has-modal");
+  reachMetrikaGoal("exit_popup_open");
   window.requestAnimationFrame(() => {
     exitModal.classList.add("is-visible");
   });
@@ -469,6 +477,7 @@ const closeExitModal = () => {
   exitModal.classList.remove("is-visible");
   exitModalVisible = false;
   document.body.classList.remove("has-modal");
+  reachMetrikaGoal("exit_popup_close");
   window.setTimeout(() => {
     if (!exitModalVisible) {
       exitModal.hidden = true;
