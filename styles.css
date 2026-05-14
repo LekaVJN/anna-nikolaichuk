@@ -3948,3 +3948,263 @@ body,
     max-height: 380px;
   }
 }
+
+/* Violet refresh for the story page and compact legal/pop-up notices. */
+body.story-page,
+body.thanks-page,
+body.policy-page {
+  --bg: #fbf8ff;
+  --bg-soft: #f4ecff;
+  --surface-soft: #fbf8ff;
+  --text: #2c2633;
+  --muted: #6a6073;
+  --line: #e7dcfb;
+  --rose: #a578f4;
+  --rose-dark: #7c55ef;
+  --sage: #b18cf8;
+  --sage-dark: #7c55ef;
+  --shadow: 0 24px 62px rgba(79, 58, 121, 0.12);
+  --shadow-soft: 0 14px 36px rgba(79, 58, 121, 0.08);
+}
+
+body.story-page {
+  background:
+    radial-gradient(circle at 14% 12%, rgba(194, 97, 255, 0.13), transparent 25rem),
+    radial-gradient(circle at 88% 18%, rgba(124, 85, 239, 0.12), transparent 24rem),
+    linear-gradient(180deg, #ffffff 0%, #fbf8ff 48%, #ffffff 100%);
+}
+
+body.story-page::before,
+body.thanks-page::before,
+body.policy-page::before {
+  background:
+    radial-gradient(circle at 10% 12%, rgba(194, 97, 255, 0.16), transparent 24%),
+    radial-gradient(circle at 86% 14%, rgba(124, 85, 239, 0.13), transparent 26%),
+    radial-gradient(circle at 72% 70%, rgba(181, 148, 248, 0.12), transparent 22%),
+    radial-gradient(circle at 12% 88%, rgba(251, 248, 255, 0.78), transparent 18%);
+}
+
+.story-page .site-header,
+.thanks-page .site-header,
+.policy-page .site-header {
+  border-bottom-color: rgba(214, 197, 255, 0.48);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 18px 42px rgba(79, 58, 121, 0.06);
+}
+
+.story-hero {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(194, 97, 255, 0.16), transparent 22rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 246, 255, 0.98) 58%, rgba(235, 224, 255, 0.86) 100%);
+}
+
+.story-hero::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0), #fbf8ff 72%);
+}
+
+.story-ground {
+  background:
+    radial-gradient(ellipse at center, rgba(124, 85, 239, 0.2), transparent 72%),
+    rgba(255, 255, 255, 0.38);
+}
+
+.story-article-section {
+  background:
+    radial-gradient(circle at 8% 12%, rgba(194, 97, 255, 0.08), transparent 22rem),
+    linear-gradient(180deg, rgba(251, 248, 255, 0.98), rgba(255, 255, 255, 0.98));
+}
+
+.story-article,
+.story-cta,
+.thanks-card,
+.thanks-chat-block,
+.policy-card {
+  border-color: rgba(214, 197, 255, 0.62);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.94), transparent 15rem),
+    rgba(255, 255, 255, 0.86);
+  box-shadow: 0 18px 46px rgba(79, 58, 121, 0.08);
+}
+
+.story-article p,
+.story-article ul,
+.story-cta p:not(.eyebrow),
+.thanks-card p,
+.thanks-chat-block p,
+.policy-card p,
+.policy-card li {
+  color: #5f5368;
+}
+
+.story-page .button-primary,
+.story-page .button-secondary,
+.story-page .button-soft,
+.thanks-page .button-primary,
+.thanks-page .button-secondary,
+.thanks-page .button-soft,
+.policy-page .button-primary,
+.policy-page .button-secondary,
+.policy-page .button-soft {
+  color: #fff;
+  border-color: transparent;
+  background: linear-gradient(135deg, #8558f0, #c261ff);
+  box-shadow: 0 16px 34px rgba(124, 85, 239, 0.2);
+}
+
+.story-page .button-primary:hover,
+.story-page .button-secondary:hover,
+.story-page .button-soft:hover,
+.thanks-page .button-primary:hover,
+.thanks-page .button-secondary:hover,
+.thanks-page .button-soft:hover,
+.policy-page .button-primary:hover,
+.policy-page .button-secondary:hover,
+.policy-page .button-soft:hover {
+  background: linear-gradient(135deg, #7549df, #b557f7);
+  box-shadow: 0 20px 42px rgba(124, 85, 239, 0.25);
+}
+
+.story-page .story-header {
+  grid-template-columns: minmax(180px, 248px) minmax(0, 1fr) auto;
+  gap: clamp(8px, 1.2vw, 14px);
+  padding: 5px clamp(18px, 4vw, 42px);
+  min-height: 66px;
+}
+
+.story-page .story-header.is-scrolled {
+  padding-block: 5px;
+}
+
+.story-page .story-header .brand {
+  gap: 2px;
+}
+
+.story-page .story-header .brand-name {
+  font-family: var(--font-heading);
+  font-size: clamp(21px, 1.55vw, 25px);
+  line-height: 1;
+}
+
+.story-page .story-header .brand-subtitle {
+  max-width: 245px;
+  font-family: var(--font-body);
+  font-size: clamp(10px, 0.78vw, 12px);
+  line-height: 1.24;
+}
+
+.story-page .story-header .story-nav {
+  gap: clamp(12px, 1.5vw, 22px);
+  font-family: var(--font-body);
+  font-size: clamp(12px, 0.9vw, 14px);
+  font-weight: 700;
+}
+
+.story-page .story-header .social-links a {
+  width: 30px;
+  height: 30px;
+}
+
+.story-page .story-header .social-links svg {
+  width: 17px;
+  height: 17px;
+}
+
+.story-page .story-header .social-icon-image {
+  width: 19px;
+  height: 19px;
+}
+
+.story-page .story-hero {
+  padding-top: 86px;
+}
+
+.cookie-notice {
+  width: min(420px, calc(100vw - 24px));
+  gap: 12px;
+  padding: 13px 14px;
+  border-color: rgba(214, 197, 255, 0.62);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 48px rgba(70, 48, 115, 0.16);
+}
+
+.cookie-notice p {
+  color: #514760;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.cookie-notice a {
+  color: #7c55ef;
+  text-decoration-color: rgba(124, 85, 239, 0.26);
+}
+
+.cookie-notice-button {
+  min-height: 36px;
+  padding: 0 15px;
+  border-color: transparent;
+  background: linear-gradient(135deg, #8558f0, #c261ff);
+  box-shadow: 0 12px 26px rgba(124, 85, 239, 0.2);
+  font-size: 12px;
+}
+
+.cookie-notice-button:hover {
+  background: linear-gradient(135deg, #7549df, #b557f7);
+  box-shadow: 0 14px 28px rgba(124, 85, 239, 0.24);
+}
+
+.exit-modal {
+  padding: 18px;
+}
+
+.exit-modal-backdrop {
+  background: rgba(39, 26, 62, 0.42);
+  backdrop-filter: blur(10px);
+}
+
+.exit-modal-card {
+  width: min(100%, 500px);
+  padding: clamp(22px, 3vw, 30px);
+  border-color: rgba(255, 255, 255, 0.34);
+  border-radius: 28px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(255, 255, 255, 0.24), transparent 11rem),
+    linear-gradient(135deg, rgba(133, 98, 230, 0.96), rgba(194, 97, 255, 0.9));
+  box-shadow: 0 26px 86px rgba(44, 30, 73, 0.32);
+}
+
+.exit-modal-card .eyebrow,
+.exit-modal-card h2,
+.exit-modal-card p:not(.eyebrow) {
+  color: #fff;
+}
+
+.exit-modal-card p:not(.eyebrow) {
+  max-width: 410px;
+  font-size: 15px;
+  line-height: 1.58;
+}
+
+.exit-modal-close {
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: none;
+}
+
+.exit-modal-close::before,
+.exit-modal-close::after {
+  background: #fff;
+}
+
+.exit-modal-actions {
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.exit-modal-actions .button {
+  min-width: 190px;
+}

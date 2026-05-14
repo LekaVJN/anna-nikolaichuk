@@ -307,9 +307,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: clamp(10px, 1.5vw, 22px);
+        gap: clamp(18px, 3vw, 44px);
         color: rgba(255, 255, 255, 0.88);
-        font-size: 12px;
+        font-size: 13px;
         font-weight: 700;
       }
 
@@ -929,7 +929,7 @@
 
       .support-card {
         position: relative;
-        min-height: clamp(430px, 42vw, 620px);
+        min-height: 100%;
         border-radius: 32px;
         overflow: hidden;
         background: transparent;
@@ -964,8 +964,8 @@
         display: block;
         width: 100%;
         height: 100%;
-        min-height: clamp(430px, 42vw, 620px);
-        object-fit: contain;
+        min-height: 100%;
+        object-fit: cover;
         object-position: left center;
         filter: saturate(0.82) brightness(1.06);
         -webkit-mask-image: radial-gradient(ellipse at center, #000 0 67%, rgba(0, 0, 0, 0.72) 82%, transparent 100%);
@@ -1471,11 +1471,6 @@
         text-align: center;
       }
 
-      .final-content.reveal {
-        opacity: 1;
-        transform: none;
-      }
-
       .final-actions {
         display: flex;
         flex-wrap: wrap;
@@ -1570,18 +1565,6 @@
         text-align: left;
       }
 
-      .lead-consent a {
-        color: rgba(255, 255, 255, 0.92);
-        text-decoration: underline;
-        text-decoration-color: rgba(255, 255, 255, 0.34);
-        text-underline-offset: 3px;
-      }
-
-      .lead-consent a:hover {
-        color: #fff;
-        text-decoration-color: rgba(255, 255, 255, 0.72);
-      }
-
       .lead-consent input {
         width: 18px;
         height: 18px;
@@ -1597,36 +1580,17 @@
       }
 
       .chat-choice {
-        position: fixed;
-        inset: 0;
-        z-index: 110;
-        display: grid;
-        place-items: center;
-        padding: 22px;
-        background: rgba(39, 26, 62, 0.54);
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.24s ease;
-        backdrop-filter: blur(14px);
+        display: none;
+        max-width: 560px;
+        margin: 24px auto 0;
+        padding: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.14);
       }
 
       .chat-choice.is-visible {
-        opacity: 1;
-        pointer-events: auto;
-      }
-
-      .chat-choice-card {
-        position: relative;
-        width: min(100%, 560px);
-        padding: clamp(24px, 4vw, 36px);
-        border: 1px solid rgba(255, 255, 255, 0.34);
-        border-radius: 28px;
-        color: #fff;
-        background:
-          radial-gradient(circle at 14% 18%, rgba(255, 255, 255, 0.22), transparent 12rem),
-          linear-gradient(135deg, rgba(124, 85, 239, 0.94), rgba(194, 97, 255, 0.88));
-        box-shadow: 0 28px 90px rgba(44, 30, 73, 0.34);
-        text-align: center;
+        display: block;
       }
 
       .chat-choice h3 {
@@ -1645,168 +1609,6 @@
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px;
-      }
-
-      .chat-choice-close {
-        position: absolute;
-        top: 12px;
-        right: 12px;
-        display: grid;
-        width: 36px;
-        height: 36px;
-        place-items: center;
-        border: 1px solid rgba(255, 255, 255, 0.26);
-        border-radius: 50%;
-        color: #fff;
-        background: rgba(255, 255, 255, 0.12);
-        cursor: pointer;
-      }
-
-      .chat-choice-close::before,
-      .chat-choice-close::after {
-        content: "";
-        position: absolute;
-        width: 15px;
-        height: 2px;
-        border-radius: 999px;
-        background: currentColor;
-      }
-
-      .chat-choice-close::before { transform: rotate(45deg); }
-      .chat-choice-close::after { transform: rotate(-45deg); }
-
-      .site-popup,
-      .site-cookie {
-        position: fixed;
-        z-index: 120;
-      }
-
-      .site-popup {
-        inset: 0;
-        display: grid;
-        place-items: center;
-        padding: 22px;
-        background: rgba(39, 26, 62, 0.5);
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.24s ease;
-        backdrop-filter: blur(14px);
-      }
-
-      .site-popup.is-visible {
-        opacity: 1;
-        pointer-events: auto;
-      }
-
-      .site-popup-card {
-        position: relative;
-        width: min(100%, 500px);
-        padding: clamp(22px, 3vw, 30px);
-        border: 1px solid rgba(255, 255, 255, 0.34);
-        border-radius: 28px;
-        color: #fff;
-        background:
-          radial-gradient(circle at 16% 12%, rgba(255, 255, 255, 0.24), transparent 11rem),
-          linear-gradient(135deg, rgba(133, 98, 230, 0.96), rgba(194, 97, 255, 0.9));
-        box-shadow: 0 26px 86px rgba(44, 30, 73, 0.32);
-        text-align: center;
-      }
-
-      .site-popup-card h3 {
-        margin-bottom: 10px;
-        color: #fff;
-        font-family: var(--serif);
-        font-size: clamp(27px, 2.8vw, 38px);
-        font-weight: 600;
-        line-height: 1.05;
-      }
-
-      .site-popup-card p {
-        margin: 0 auto 18px;
-        max-width: 410px;
-        color: rgba(255, 255, 255, 0.86);
-        font-size: 15px;
-        line-height: 1.6;
-      }
-
-      .site-popup-actions {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-      }
-
-      .site-popup-close {
-        position: absolute;
-        top: 12px;
-        right: 12px;
-        display: grid;
-        width: 34px;
-        height: 34px;
-        place-items: center;
-        border: 1px solid rgba(255, 255, 255, 0.24);
-        border-radius: 50%;
-        color: #fff;
-        background: rgba(255, 255, 255, 0.12);
-        cursor: pointer;
-      }
-
-      .site-popup-close::before,
-      .site-popup-close::after {
-        content: "";
-        position: absolute;
-        width: 14px;
-        height: 2px;
-        border-radius: 999px;
-        background: currentColor;
-      }
-
-      .site-popup-close::before { transform: rotate(45deg); }
-      .site-popup-close::after { transform: rotate(-45deg); }
-
-      .site-cookie {
-        right: clamp(12px, 2.2vw, 28px);
-        bottom: clamp(12px, 2.2vw, 28px);
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 12px;
-        align-items: center;
-        width: min(440px, calc(100vw - 24px));
-        padding: 13px 14px;
-        border: 1px solid rgba(214, 197, 255, 0.62);
-        border-radius: 18px;
-        color: #514760;
-        background: rgba(255, 255, 255, 0.92);
-        box-shadow: 0 18px 48px rgba(70, 48, 115, 0.16);
-        backdrop-filter: blur(16px);
-      }
-
-      .site-cookie p {
-        margin: 0;
-        font-size: 12px;
-        line-height: 1.45;
-      }
-
-      .site-cookie a {
-        color: #7c55ef;
-        font-weight: 700;
-        text-decoration: underline;
-        text-decoration-color: rgba(124, 85, 239, 0.26);
-        text-underline-offset: 3px;
-      }
-
-      .site-cookie button {
-        min-height: 36px;
-        padding: 0 15px;
-        border: 0;
-        border-radius: 999px;
-        color: #fff;
-        background: linear-gradient(135deg, #8558f0, #c261ff);
-        box-shadow: 0 12px 26px rgba(124, 85, 239, 0.2);
-        font: inherit;
-        font-size: 12px;
-        font-weight: 800;
-        cursor: pointer;
       }
 
       .button img {
@@ -2198,19 +2000,13 @@
         }
 
         .lead-form-row,
-        .chat-choice-actions,
-        .site-cookie {
+        .chat-choice-actions {
           grid-template-columns: 1fr;
         }
 
         .lead-magnet,
-        .chat-choice,
-        .site-popup {
+        .chat-choice {
           padding: 18px;
-        }
-
-        .site-cookie {
-          align-items: stretch;
         }
       }
 
@@ -2285,12 +2081,10 @@
             </span>
           </a>
           <nav class="nav" aria-label="Основная навигация">
-            <a href="#recognize">Узнаёте себя?</a>
-            <a href="#approach">И дело не в вас</a>
-            <a href="#programs">Экспедиция</a>
+            <a href="#approach">Подход</a>
+            <a href="#programs">Программы</a>
             <a href="#reviews">Отзывы</a>
-            <a href="#about">Почему доверять</a>
-            <a href="#final">Разбор</a>
+            <a href="#about">Обо мне</a>
           </nav>
         </div>
       </header>
@@ -2489,54 +2283,34 @@
                 Если вы устали от постоянных срывов, ограничений и попыток начать заново — присоединяйтесь к “Экспедиции к стройности”.
               </p>
               <div class="lead-magnet" data-final-lead>
-                <h3>Получите бесплатный разбор, почему вес не уходит, даже если вы стараетесь</h3>
+                <h3>Получите лид-магнит и выберите удобный чат</h3>
                 <p>
-                  Оставьте имя и email — я покажу, где чаще всего ломается система питания, и открою доступ к закрытому чату экспедиции.
+                  Оставьте имя и email — я отправлю вам материалы по системе питания и открою выбор, где удобнее продолжить: в Max или Telegram.
                 </p>
-                <form
-                  class="lead-form"
-                  data-final-lead-form
-                  data-form-endpoint="https://script.google.com/macros/s/AKfycbxxVamNlNxUMNbm_U4_7VdVZRMr4uvulWk8CnAy4OtdVTUu0W7n_4tneMmLohY6g9Hw4w/exec"
-                >
+                <form class="lead-form" data-final-lead-form>
                   <div class="lead-form-row">
                     <input type="text" name="name" placeholder="Ваше имя" autocomplete="name" required />
                     <input type="email" name="email" placeholder="Ваш email" autocomplete="email" required />
                   </div>
-                  <input type="hidden" name="source" value="index-final-free-review" />
-                  <input type="hidden" name="lead_magnet" value="Бесплатный разбор: почему вес не уходит" />
-                  <input type="hidden" name="submitted_at" data-submitted-at />
-                  <button class="button button-primary" type="submit">Получить разбор</button>
                   <label class="lead-consent">
-                    <input type="checkbox" name="privacy_agreement" value="yes" required />
-                    <span>
-                      Нажимая кнопку, вы соглашаетесь с
-                      <a href="privacy.html" target="_blank" rel="noopener">Политикой конфиденциальности</a>.
-                    </span>
+                    <input type="checkbox" name="email_subscription" required />
+                    <span>Согласна получить лид-магнит и email-письма с материалами экспедиции. Отписаться можно в любой момент.</span>
                   </label>
-                  <label class="lead-consent">
-                    <input type="checkbox" name="personal_data_consent" value="yes" />
-                    <span>
-                      Даю
-                      <a href="personal-data-consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a>.
-                    </span>
-                  </label>
+                  <button class="button button-primary" type="submit">Получить лид-магнит</button>
                   <p class="lead-form-status" data-final-form-status aria-live="polite"></p>
                 </form>
                 <div class="chat-choice" data-chat-choice aria-hidden="true">
-                  <div class="chat-choice-card" role="dialog" aria-modal="true" aria-label="Доступ к закрытому чату">
-                    <button class="chat-choice-close" type="button" data-chat-choice-close aria-label="Закрыть"></button>
-                    <h3>Куда отправить доступ?</h3>
-                    <p>Данные приняты. Выберите удобный мессенджер, чтобы перейти в закрытый чат экспедиции.</p>
-                    <div class="chat-choice-actions">
-                      <a class="button button-primary" href="https://max.ru/join/zZG2s-T70XAgAtj-I6kza7N3cy2kZuIjgpvJ-Kbzgd4">
-                        <img data-image-var="ICON_MAX_LOGO" alt="" />
-                        Max
-                      </a>
-                      <a class="button button-blue" href="https://t.me/+t1rubcxQMg02NDVi">
-                        <img data-image-var="ICON_TELEGRAM" alt="" />
-                        Telegram
-                      </a>
-                    </div>
+                  <h3>Выберите чат</h3>
+                  <p>Данные приняты. Теперь выберите, где вам удобнее получить доступ к закрытому чату.</p>
+                  <div class="chat-choice-actions">
+                    <a class="button button-primary" href="#popup:myform">
+                      <img data-image-var="ICON_MAX_LOGO" alt="" />
+                      Max
+                    </a>
+                    <a class="button button-blue" href="#popup:myform">
+                      <img data-image-var="ICON_TELEGRAM" alt="" />
+                      Telegram
+                    </a>
                   </div>
                 </div>
               </div>
@@ -2550,7 +2324,7 @@
       <footer class="footer">
         <div class="container">
           <div class="footer-inner">
-            <span>Анна Николайчук · Эксперт по низкоуглеводному питанию · 2026</span>
+            <span>Анна Николайчук · Снижение веса без крайностей · 2026</span>
             <a href="#top">Наверх</a>
           </div>
           <div class="footer-requisites" aria-label="Реквизиты">
@@ -2569,18 +2343,6 @@
       </div>
     </div>
 
-    <div class="site-popup" data-site-popup aria-hidden="true">
-      <div class="site-popup-card" role="dialog" aria-modal="true" aria-label="Бесплатный разбор">
-        <button class="site-popup-close" type="button" data-site-popup-close aria-label="Закрыть окно"></button>
-        <h3>Перед уходом</h3>
-        <p>Можно получить бесплатный разбор и понять, почему вес не уходит даже при стараниях.</p>
-        <div class="site-popup-actions">
-          <a class="button button-primary" href="#final">Получить разбор</a>
-          <button class="button button-ghost" type="button" data-site-popup-close>Остаться на сайте</button>
-        </div>
-      </div>
-    </div>
-
     <script>
       const IMAGE_ASSETS = {
         IMAGE_SITE_LOGO: "foto/лого.svg",
@@ -2590,7 +2352,7 @@
         IMAGE_REVIEW_SCREEN_2: "foto/Отзывы/photo_2025-03-26_16-20-45.jpg",
         IMAGE_REVIEW_SCREEN_3: "foto/Отзывы/photo_2025-03-27_13-21-45.jpg",
         IMAGE_REVIEW_SCREEN_4: "foto/Отзывы/photo_2025-04-11_18-13-34.jpg",
-        IMAGE_SUPPORT_LAVANDA: "foto/Lavand.png?v=20260514-1830",
+        IMAGE_SUPPORT_LAVANDA: "foto/Lavanda.png",
         IMAGE_PROGRAM_EXPEDITION: "foto/exp.png",
         IMAGE_ABOUT_ANNA: "foto/anna2.png",
         IMAGE_FINAL_FLOWERS: "foto/ChatGPT Image 14 мая 2026 г., 08_23_35.png",
@@ -2720,112 +2482,14 @@
       const finalLeadForm = document.querySelector("[data-final-lead-form]");
       const finalFormStatus = document.querySelector("[data-final-form-status]");
       const chatChoice = document.querySelector("[data-chat-choice]");
-      const chatChoiceClose = document.querySelector("[data-chat-choice-close]");
-      const sitePopup = document.querySelector("[data-site-popup]");
-      const sitePopupStorageKey = "annaSitePopupShownViolet2";
-      const cookieNoticeStorageKey = "annaCookieNoticeAcceptedViolet2";
       const leadEmailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-      const padDatePart = (value) => String(value).padStart(2, "0");
-      const formatSubmittedAt = (date = new Date()) =>
-        `${date.getFullYear()}-${padDatePart(date.getMonth() + 1)}-${padDatePart(date.getDate())} ${padDatePart(date.getHours())}:${padDatePart(date.getMinutes())}:${padDatePart(date.getSeconds())}`;
 
-      const openChatChoice = () => {
-        chatChoice?.classList.add("is-visible");
-        chatChoice?.setAttribute("aria-hidden", "false");
-        document.body.style.overflow = "hidden";
-        chatChoice?.querySelector("a")?.focus();
-      };
-
-      const closeChatChoice = () => {
-        chatChoice?.classList.remove("is-visible");
-        chatChoice?.setAttribute("aria-hidden", "true");
-        document.body.style.overflow = "";
-      };
-
-      chatChoice?.addEventListener("click", (event) => {
-        if (event.target === chatChoice || event.target.closest("[data-chat-choice-close]")) {
-          closeChatChoice();
-        }
-      });
-
-      chatChoiceClose?.addEventListener("click", closeChatChoice);
-
-      const getStoredFlag = (key) => {
-        try {
-          return window.localStorage?.getItem(key) === "true";
-        } catch {
-          return false;
-        }
-      };
-
-      const setStoredFlag = (key) => {
-        try {
-          window.localStorage?.setItem(key, "true");
-        } catch {
-          // The UI can still close when storage is unavailable.
-        }
-      };
-
-      const openSitePopup = () => {
-        if (!sitePopup || getStoredFlag(sitePopupStorageKey)) return;
-        setStoredFlag(sitePopupStorageKey);
-        sitePopup.classList.add("is-visible");
-        sitePopup.setAttribute("aria-hidden", "false");
-        document.body.style.overflow = "hidden";
-        sitePopup.querySelector("a, button")?.focus();
-      };
-
-      const closeSitePopup = () => {
-        sitePopup?.classList.remove("is-visible");
-        sitePopup?.setAttribute("aria-hidden", "true");
-        if (!chatChoice?.classList.contains("is-visible")) {
-          document.body.style.overflow = "";
-        }
-      };
-
-      sitePopup?.addEventListener("click", (event) => {
-        if (event.target === sitePopup || event.target.closest("[data-site-popup-close]")) {
-          closeSitePopup();
-        }
-      });
-
-      sitePopup?.querySelector('a[href="#final"]')?.addEventListener("click", closeSitePopup);
-
-      window.setTimeout(() => {
-        const finePointer = window.matchMedia?.("(pointer: fine)")?.matches ?? false;
-        if (!finePointer || getStoredFlag(sitePopupStorageKey)) return;
-        document.documentElement.addEventListener("mouseleave", (event) => {
-          if (event.clientY <= 24) openSitePopup();
-        }, { once: true });
-      }, 1200);
-
-      if (!getStoredFlag(cookieNoticeStorageKey)) {
-        const cookieNotice = document.createElement("div");
-        cookieNotice.className = "site-cookie";
-        cookieNotice.setAttribute("role", "status");
-        cookieNotice.innerHTML = [
-          "<p>",
-          "Мы используем cookie для корректной работы сайта и аналитики. ",
-          '<a href="privacy.html">Подробнее</a>.',
-          "</p>",
-          '<button type="button" data-accept-cookies>Понятно</button>',
-        ].join("");
-        cookieNotice.querySelector("[data-accept-cookies]")?.addEventListener("click", () => {
-          setStoredFlag(cookieNoticeStorageKey);
-          cookieNotice.remove();
-        });
-        document.body.append(cookieNotice);
-      }
-
-      finalLeadForm?.addEventListener("submit", async (event) => {
+      finalLeadForm?.addEventListener("submit", (event) => {
         event.preventDefault();
         const formData = new FormData(finalLeadForm);
         const name = String(formData.get("name") || "").trim();
         const email = String(formData.get("email") || "").trim();
-        const privacyAccepted = formData.get("privacy_agreement") === "yes";
-        const personalDataConsent = formData.get("personal_data_consent") === "yes";
-        const submitButton = finalLeadForm.querySelector('button[type="submit"]');
-        const defaultButtonText = submitButton?.textContent || "Получить разбор";
+        const subscribed = formData.get("email_subscription") === "on";
 
         if (!name) {
           finalFormStatus.textContent = "Введите имя.";
@@ -2839,55 +2503,18 @@
           return;
         }
 
-        if (!privacyAccepted) {
-          finalFormStatus.textContent = "Подтвердите согласие с политикой конфиденциальности.";
-          finalLeadForm.elements.privacy_agreement?.focus();
+        if (!subscribed) {
+          finalFormStatus.textContent = "Подтвердите подписку, чтобы получить лид-магнит.";
+          finalLeadForm.elements.email_subscription?.focus();
           return;
         }
 
-        const submittedAtInput = finalLeadForm.querySelector("[data-submitted-at]");
-        if (submittedAtInput) submittedAtInput.value = formatSubmittedAt();
-        formData.set("name", name);
-        formData.set("email", email);
-        formData.set("privacy_agreement", "yes");
-        formData.set("personal_data_consent", personalDataConsent ? "yes" : "no");
-        if (submittedAtInput) formData.set("submitted_at", submittedAtInput.value);
-
         sessionStorage.setItem("annaLeadName", name);
         sessionStorage.setItem("annaLeadEmail", email);
-        finalFormStatus.textContent = "Готово. Сейчас откроется выбор чата.";
-        openChatChoice();
-
-        submitButton?.setAttribute("disabled", "true");
-        if (submitButton) submitButton.textContent = "Отправляем...";
-
-        try {
-          const endpoint = finalLeadForm.dataset.formEndpoint?.trim();
-          if (endpoint) {
-            fetch(endpoint, {
-              method: "POST",
-              mode: "no-cors",
-              body: new URLSearchParams(formData),
-              headers: {
-                "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-              },
-            }).catch(() => {
-              finalFormStatus.textContent = "Данные приняты. Если отправка в таблицу задержалась, всё равно выберите чат.";
-            });
-          }
-        } catch {
-          finalFormStatus.textContent = "Данные приняты. Если отправка в таблицу задержалась, всё равно выберите чат.";
-        }
-
-        submitButton?.removeAttribute("disabled");
-        if (submitButton) submitButton.textContent = defaultButtonText;
-      });
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          closeChatChoice();
-          closeSitePopup();
-        }
+        finalFormStatus.textContent = "Готово. Выберите удобный чат ниже.";
+        chatChoice?.classList.add("is-visible");
+        chatChoice?.setAttribute("aria-hidden", "false");
+        chatChoice?.scrollIntoView({ behavior: "smooth", block: "center" });
       });
     </script>
 
