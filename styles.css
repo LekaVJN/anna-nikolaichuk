@@ -4208,3 +4208,172 @@ body.policy-page::before {
 .exit-modal-actions .button {
   min-width: 190px;
 }
+
+/* Unified violet legal/utility pages */
+.policy-page .site-header,
+.thanks-page .site-header {
+  grid-template-columns: minmax(190px, 270px) minmax(0, 1fr) auto;
+  padding: 6px clamp(18px, 4vw, 42px);
+  min-height: 70px;
+  border-bottom-color: rgba(214, 197, 255, 0.56);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 18px 46px rgba(79, 58, 121, 0.07);
+}
+
+.policy-page .brand,
+.thanks-page .brand {
+  gap: 2px;
+}
+
+.policy-page .brand-name,
+.thanks-page .brand-name {
+  font-family: var(--font-heading);
+  font-size: clamp(21px, 1.6vw, 25px);
+  line-height: 1;
+}
+
+.policy-page .brand-subtitle,
+.thanks-page .brand-subtitle {
+  max-width: 270px;
+  font-family: var(--font-body);
+  font-size: clamp(10px, 0.8vw, 12px);
+  line-height: 1.25;
+}
+
+.policy-page .nav,
+.thanks-page .nav {
+  gap: clamp(12px, 1.6vw, 24px);
+  color: #4f4657;
+  font-family: var(--font-body);
+  font-size: clamp(12px, 0.9vw, 14px);
+  font-weight: 700;
+}
+
+.policy-page .social-links a,
+.thanks-page .social-links a {
+  border-color: rgba(124, 85, 239, 0.2);
+  background: rgba(255, 255, 255, 0.76);
+  color: #7c55ef;
+}
+
+body.policy-page,
+body.thanks-page {
+  background:
+    radial-gradient(circle at 14% 10%, rgba(194, 97, 255, 0.12), transparent 24rem),
+    radial-gradient(circle at 88% 18%, rgba(124, 85, 239, 0.1), transparent 24rem),
+    linear-gradient(180deg, #ffffff 0%, #fbf8ff 52%, #ffffff 100%);
+}
+
+.policy-section,
+.thanks-section {
+  padding-top: clamp(112px, 11vw, 142px);
+  background:
+    radial-gradient(circle at 8% 18%, rgba(194, 97, 255, 0.07), transparent 20rem),
+    linear-gradient(180deg, rgba(251, 248, 255, 0.96), rgba(255, 255, 255, 0.98));
+}
+
+.policy-card,
+.thanks-card,
+.thanks-chat-block {
+  border-color: rgba(214, 197, 255, 0.68);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.96), transparent 15rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(250, 246, 255, 0.88));
+  box-shadow: 0 22px 60px rgba(79, 58, 121, 0.1);
+}
+
+.policy-card .eyebrow,
+.thanks-card .eyebrow,
+.policy-card h2,
+.thanks-subtitle,
+.policy-signature {
+  color: #7c55ef;
+}
+
+.policy-card h1,
+.thanks-card h1 {
+  color: #2c2633;
+}
+
+.policy-card p,
+.policy-card li,
+.thanks-card p,
+.thanks-list li,
+.thanks-note,
+.thanks-chat-block p {
+  color: #5f5368;
+}
+
+.policy-card a,
+.thanks-card a,
+.thanks-chat-block a {
+  color: #7c55ef;
+  text-decoration-color: rgba(124, 85, 239, 0.32);
+}
+
+.policy-page .footer,
+.thanks-page .footer {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(194, 97, 255, 0.2), transparent 18rem),
+    linear-gradient(135deg, #302044, #4c3370);
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.policy-page .footer-inner,
+.thanks-page .footer-inner {
+  border-bottom-color: rgba(255, 255, 255, 0.14);
+}
+
+.policy-page .footer-requisites,
+.thanks-page .footer-requisites {
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.policy-page .footer-requisites-title,
+.thanks-page .footer-requisites-title,
+.policy-page .footer a,
+.thanks-page .footer a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 900px) {
+  .policy-page .site-header,
+  .thanks-page .site-header {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 12px 16px;
+  }
+
+  .policy-page .nav,
+  .thanks-page .nav {
+    display: flex;
+    justify-content: flex-start;
+    gap: 14px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .policy-page .nav::-webkit-scrollbar,
+  .thanks-page .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .policy-section,
+  .thanks-section {
+    padding-top: 132px;
+  }
+
+  .policy-card h1,
+  .thanks-card h1 {
+    max-width: 100%;
+    font-size: clamp(38px, 12vw, 52px);
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .policy-card h2 {
+    overflow-wrap: anywhere;
+  }
+}
