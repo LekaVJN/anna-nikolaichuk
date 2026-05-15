@@ -2995,31 +2995,31 @@
         formData.set("personal_data_consent", personalDataConsent ? "yes" : "no");
         if (submittedAtInput) formData.set("submitted_at", submittedAtInput.value);
 
-        sessionStorage.setItem("annaLeadName", name);
-        sessionStorage.setItem("annaLeadEmail", email);
-        finalFormStatus.textContent = "Готово. Сейчас откроется выбор чата.";
-        reachGoal("lead_form_submit");
-        openChatChoice();
-
         submitButton?.setAttribute("disabled", "true");
         if (submitButton) submitButton.textContent = "Отправляем...";
+        finalFormStatus.textContent = "Отправляем данные...";
 
         try {
           const endpoint = finalLeadForm.dataset.formEndpoint?.trim();
           if (endpoint) {
-            fetch(endpoint, {
+            await fetch(endpoint, {
               method: "POST",
               mode: "no-cors",
               body: new URLSearchParams(formData),
               headers: {
                 "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
               },
-            }).catch(() => {
-              finalFormStatus.textContent = "Данные приняты. Если отправка в таблицу задержалась, всё равно выберите чат.";
             });
+          } else {
+            throw new Error("Lead endpoint is empty.");
           }
+          sessionStorage.setItem("annaLeadName", name);
+          sessionStorage.setItem("annaLeadEmail", email);
+          finalFormStatus.textContent = "Готово. Сейчас откроется выбор чата.";
+          reachGoal("lead_form_submit");
+          openChatChoice();
         } catch {
-          finalFormStatus.textContent = "Данные приняты. Если отправка в таблицу задержалась, всё равно выберите чат.";
+          finalFormStatus.textContent = "Не удалось отправить данные. Попробуйте ещё раз.";
         }
 
         submitButton?.removeAttribute("disabled");
