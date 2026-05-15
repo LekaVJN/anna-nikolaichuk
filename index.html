@@ -2816,9 +2816,36 @@
       const formatSubmittedAt = (date = new Date()) =>
         `${date.getFullYear()}-${padDatePart(date.getMonth() + 1)}-${padDatePart(date.getDate())} ${padDatePart(date.getHours())}:${padDatePart(date.getMinutes())}:${padDatePart(date.getSeconds())}`;
 
-      const reachGoal = (goalName, params = {}) => {
+      const reachGoal = (goalName, params = {}, callback) => {
         if (typeof window.ym !== "function") return;
-        window.ym(metrikaCounterId, "reachGoal", goalName, params);
+        window.ym(metrikaCounterId, "reachGoal", goalName, params, callback);
+      };
+
+      const shouldHandleTrackedNavigation = (event, link) =>
+        !event.defaultPrevented &&
+        event.button === 0 &&
+        !event.metaKey &&
+        !event.ctrlKey &&
+        !event.shiftKey &&
+        !event.altKey &&
+        link.target !== "_blank";
+
+      const trackChatNavigation = (event, link, goalName) => {
+        if (!shouldHandleTrackedNavigation(event, link)) {
+          reachGoal(goalName);
+          return;
+        }
+
+        event.preventDefault();
+        let navigated = false;
+        const go = () => {
+          if (navigated) return;
+          navigated = true;
+          window.location.href = link.href;
+        };
+
+        reachGoal(goalName, { href: link.href }, go);
+        window.setTimeout(go, 350);
       };
 
       const openChatChoice = () => {
@@ -2945,9 +2972,9 @@
         if (!href) return;
 
         if (href.includes("max.ru/join")) {
-          reachGoal("max_chat_click");
+          trackChatNavigation(event, target, "max_chat_click");
         } else if (href.includes("t.me/")) {
-          reachGoal("telegram_click");
+          trackChatNavigation(event, target, "telegram_click");
         } else if (href === "#final") {
           reachGoal("cta_to_final");
         } else if (href.includes("story.html")) {

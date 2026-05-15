@@ -70,10 +70,37 @@ const syncReveals = () => {
   });
 };
 
-const reachMetrikaGoal = (goalName, params = {}) => {
+const reachMetrikaGoal = (goalName, params = {}, callback) => {
   if (typeof window.ym !== "function") return;
 
-  window.ym(metrikaCounterId, "reachGoal", goalName, params);
+  window.ym(metrikaCounterId, "reachGoal", goalName, params, callback);
+};
+
+const shouldHandleTrackedNavigation = (event, link) =>
+  !event.defaultPrevented &&
+  event.button === 0 &&
+  !event.metaKey &&
+  !event.ctrlKey &&
+  !event.shiftKey &&
+  !event.altKey &&
+  link.target !== "_blank";
+
+const trackChatNavigation = (event, link, goalName) => {
+  if (!shouldHandleTrackedNavigation(event, link)) {
+    reachMetrikaGoal(goalName);
+    return;
+  }
+
+  event.preventDefault();
+  let navigated = false;
+  const go = () => {
+    if (navigated) return;
+    navigated = true;
+    window.location.href = link.href;
+  };
+
+  reachMetrikaGoal(goalName, { href: link.href }, go);
+  window.setTimeout(go, 350);
 };
 
 const appendUrlParam = (url, key, value) => {
@@ -83,14 +110,14 @@ const appendUrlParam = (url, key, value) => {
 };
 
 document.querySelectorAll('a[href*="max.ru/join"]').forEach((link) => {
-  link.addEventListener("click", () => {
-    reachMetrikaGoal("max_chat_click");
+  link.addEventListener("click", (event) => {
+    trackChatNavigation(event, link, "max_chat_click");
   });
 });
 
 document.querySelectorAll('a[href*="t.me/"]').forEach((link) => {
-  link.addEventListener("click", () => {
-    reachMetrikaGoal("telegram_click");
+  link.addEventListener("click", (event) => {
+    trackChatNavigation(event, link, "telegram_click");
   });
 });
 
