@@ -2413,7 +2413,7 @@
                 Рассказываю систему питания, которую можно удержать в обычной жизни — с детьми, работой и без подсчёта калорий
               </p>
               <div class="hero-actions">
-                <a class="button button-primary" href="#final">Хочу узнать систему</a>
+                <a class="button button-primary" href="#final" data-goal="cta_hero_click">Хочу узнать систему</a>
               </div>
             </div>
             <div class="hero-person reveal">
@@ -2469,7 +2469,7 @@
                   <p>Но если вы много раз пытались похудеть, держались какое-то время, а потом снова срывались — это ещё не значит, что проблема в вас.</p>
                   <p>Чаще всего проблема в другом: вы слишком долго пытаетесь снижать вес через запреты, напряжение и постоянную борьбу с собой, а не через понятную систему, которую можно встроить в обычную жизнь.</p>
                 </div>
-                <a class="button button-primary" href="#final">Узнать про систему</a>
+                <a class="button button-primary" href="#final" data-goal="cta_support_click">Узнать про систему</a>
               </div>
             </div>
           </div>
@@ -2495,7 +2495,7 @@
                 </ul>
                 <p>Также я отвечу на ваши вопросы в прямом эфире.</p>
                 <p><strong>Вход бесплатный.</strong></p>
-                <a class="button button-primary" href="#final">Попасть в закрытый чат</a>
+                <a class="button button-primary" href="#final" data-goal="cta_program_click">Попасть в закрытый чат</a>
               </div>
               <div class="leaves-row reveal" aria-hidden="true">
                 <!-- IMAGE_PROGRAM_EXPEDITION: новая картинка "ЕЭСП" для блока программы -->
@@ -2548,7 +2548,7 @@
                 </p>
                 <div class="trust-actions">
                   <a class="button button-ghost" href="story.html">Узнать мою историю подробнее</a>
-                  <a class="button button-primary" href="#final">Записаться в экспедицию</a>
+                  <a class="button button-primary" href="#final" data-goal="cta_trust_click">Записаться в экспедицию</a>
                 </div>
               </div>
               <div class="trust-stats reveal">
@@ -2661,7 +2661,7 @@
         <h3>Перед уходом</h3>
         <p>Можно получить бесплатный разбор и понять, почему вес не уходит даже при стараниях.</p>
         <div class="site-popup-actions">
-          <a class="button button-primary" href="#final">Получить разбор</a>
+          <a class="button button-primary" href="#final" data-goal="cta_exit_popup_click">Получить разбор</a>
           <button class="button button-ghost" type="button" data-site-popup-close>Остаться на сайте</button>
         </div>
       </div>
@@ -2934,6 +2934,11 @@
         if (target.matches('[type="submit"]') && target.closest("[data-final-lead-form]")) {
           reachGoal("lead_form_submit_attempt");
           return;
+        }
+
+        const explicitGoal = target.dataset.goal;
+        if (explicitGoal) {
+          reachGoal(explicitGoal);
         }
 
         const href = target.getAttribute("href") || "";
