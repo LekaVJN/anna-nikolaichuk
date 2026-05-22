@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Снижение веса без диет, срывов и отдельного меню от семьи. Спокойный подход Анны в канале MAX."
+    />
+    <title>Снижение веса без диет | Анна</title>
+    <link
+      rel="preload"
+      as="image"
+      href="%D1%84%D0%BE%D1%82%D0%BE/IMG_20260523_022005%20%282%29.png"
+      fetchpriority="high"
+    />
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+      (function (m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+          if (document.scripts[j].src === r) {
+            return;
+          }
+        }
+        (k = e.createElement(t)),
+          (a = e.getElementsByTagName(t)[0]),
+          (k.async = 1),
+          (k.src = r),
+          a.parentNode.insertBefore(k, a);
+      })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=109372899", "ym");
+
+      ym(109372899, "init", {
+        ssr: true,
+        webvisor: true,
+        clickmap: true,
+        ecommerce: "dataLayer",
+        referrer: document.referrer,
+        url: location.href,
+        accurateTrackBounce: true,
+        trackLinks: true,
+      });
+    </script>
+    <!-- /Yandex.Metrika counter -->
+    <style>
+      :root {
+        --bg: #fffdf9;
+        --bg-2: #f5f2fb;
+        --ink: #191723;
+        --text: #4f4860;
+        --muted: #9590a0;
+        --line: rgba(97, 83, 124, 0.12);
+        --max: #7c57f5;
+        --max-2: #b06eff;
+        --aqua: #35b8bd;
+        --glow: 0 18px 52px rgba(124, 87, 245, 0.28);
+        --shadow: 0 24px 72px rgba(44, 36, 63, 0.1);
+        --radius: 28px;
+        --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      html, body { max-width: 100%; overflow-x: hidden; }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        color: var(--ink);
+        background: var(--bg);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+        line-height: 1.58;
+        text-rendering: optimizeLegibility;
+      }
+
+      img { display: block; max-width: 100%; }
+      a { color: inherit; text-decoration: none; }
+      p, h1, h2, h3 { margin: 0; }
+
+      .container {
+        width: min(1100px, calc(100% - 40px));
+        margin-inline: auto;
+      }
+
+      /* ── SCREEN 1: HERO ── */
+      .hero {
+        min-height: 100svh;
+        display: grid;
+        align-items: center;
+        padding: clamp(40px, 5vw, 72px) 0 clamp(80px, 10vw, 130px);
+        background:
+          radial-gradient(ellipse 60% 50% at 100% 0%, rgba(176, 110, 255, 0.07), transparent),
+          radial-gradient(ellipse 50% 60% at 0% 85%, rgba(53, 184, 189, 0.05), transparent),
+          var(--bg);
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr min(46%, 480px);
+        gap: clamp(32px, 6vw, 80px);
+        align-items: center;
+      }
+
+      h1 {
+        font-size: clamp(38px, 5.2vw, 64px);
+        font-weight: 600;
+        letter-spacing: -0.022em;
+        line-height: 1.06;
+        text-wrap: balance;
+        max-width: 640px;
+      }
+
+      h2 {
+        font-size: clamp(28px, 3.8vw, 48px);
+        font-weight: 600;
+        letter-spacing: -0.018em;
+        line-height: 1.1;
+        text-wrap: balance;
+      }
+
+      .accent { color: var(--max); }
+
+      .hero-copy {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+      }
+
+      .hero-copy h1 { margin: 0; }
+
+      .hero-copy .button { margin-top: 0; }
+
+      .hero-copy .perks { margin-top: 0; }
+
+      .hero-sub {
+        margin-top: 0;
+        max-width: 540px;
+        color: var(--text);
+        font-size: clamp(16px, 1.4vw, 20px);
+        font-weight: 380;
+        line-height: 1.7;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 56px;
+        margin-top: 44px;
+        padding: 15px 30px;
+        border-radius: 999px;
+        color: #fff;
+        background: linear-gradient(135deg, var(--max), var(--max-2) 55%, var(--aqua));
+        box-shadow: var(--glow);
+        font-size: 16px;
+        font-weight: 540;
+        line-height: 1.2;
+        transition: transform 230ms var(--ease), box-shadow 230ms var(--ease);
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 26px 64px rgba(124, 87, 245, 0.34);
+      }
+
+      .perks {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 28px;
+        margin: 52px 0 0;
+        padding: 0;
+        list-style: none;
+        max-width: 520px;
+      }
+
+      .perks li {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        color: var(--text);
+        font-size: clamp(13.5px, 1.1vw, 16px);
+        font-weight: 380;
+      }
+
+      .perks li::before {
+        content: "";
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background-color: var(--max);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none'%3E%3Cpath d='M4 9l3.5 3.5L14 5.5' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-size: contain;
+      }
+
+      /* Anna photo */
+      .anna-wrap { position: relative; }
+
+      .anna-photo {
+        position: relative;
+        border-radius: 36px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        background: var(--bg-2);
+      }
+
+      .anna-photo img {
+        width: 100%;
+        height: min(70svh, 580px);
+        object-fit: cover;
+        object-position: 50% 15%;
+      }
+
+      /* ── SCREEN 2: WHY + CTA ── */
+      .second {
+        display: grid;
+        align-items: start;
+        padding: clamp(96px, 11vw, 140px) 0 clamp(72px, 8vw, 100px);
+        background:
+          radial-gradient(ellipse 70% 50% at 20% 50%, rgba(124, 87, 245, 0.055), transparent),
+          var(--bg-2);
+      }
+
+      .second-inner {
+        display: grid;
+        gap: clamp(32px, 4vw, 52px);
+      }
+
+      .cols-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(20px, 3.5vw, 52px);
+        align-items: start;
+      }
+
+      .why-block h3 {
+        font-size: clamp(16px, 1.4vw, 19px);
+        font-weight: 570;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+        margin-bottom: 14px;
+      }
+
+      .check-list {
+        display: grid;
+        gap: 10px;
+        padding: 0;
+        margin: 0;
+      }
+
+      .check-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        color: var(--text);
+        font-size: clamp(14px, 1.1vw, 16px);
+        font-weight: 360;
+        line-height: 1.5;
+        list-style: none;
+      }
+
+      .check-list li .icon {
+        width: 19px;
+        height: 19px;
+        flex-shrink: 0;
+        margin-top: 1px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+      }
+
+      .icon-yes { background: rgba(124, 87, 245, 0.12); }
+      .icon-yes svg { color: var(--max); }
+
+      .icon-no { background: rgba(220, 80, 80, 0.1); }
+      .icon-no svg { color: #d94040; }
+
+      .icon svg {
+        width: 10px;
+        height: 10px;
+        stroke-width: 2.4;
+      }
+
+      /* Bottom CTA row */
+      .bottom-cta-row {
+        padding-top: clamp(22px, 3vw, 36px);
+        border-top: 1px solid var(--line);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 72px;
+      }
+
+      .bottom-cta-row p {
+        color: var(--text);
+        font-size: clamp(17px, 1.6vw, 22px);
+        font-weight: 380;
+        line-height: 1.55;
+        max-width: 540px;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .cta-buttons .button {
+        margin-top: 0;
+      }
+
+      .button-ghost {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 56px;
+        padding: 15px 30px;
+        border-radius: 999px;
+        border: 1.5px solid rgba(124, 87, 245, 0.4);
+        color: var(--max);
+        font-size: 16px;
+        font-weight: 540;
+        line-height: 1.2;
+        transition: border-color 230ms var(--ease), background 230ms var(--ease);
+      }
+
+      .button-ghost:hover {
+        border-color: var(--max);
+        background: rgba(124, 87, 245, 0.07);
+      }
+
+      /* Footer */
+      .footer {
+        padding: 22px 0 28px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 20px;
+        justify-content: center;
+      }
+
+      .footer a { transition: color 180ms ease; }
+      .footer a:hover { color: var(--max); }
+
+      /* Animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 680ms var(--ease), transform 680ms var(--ease);
+      }
+
+      .fade-in.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .d1 { transition-delay: 80ms; }
+      .d2 { transition-delay: 155ms; }
+      .d3 { transition-delay: 220ms; }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 900px) {
+        .hero, .second { min-height: auto; }
+
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+
+        .anna-photo img { height: min(58svh, 480px); }
+
+        .bottom-cta-row { grid-template-columns: 1fr; }
+        .cta-buttons { width: 100%; }
+        .cta-anna { display: none; }
+      }
+
+      @media (max-width: 680px) {
+        .container { width: min(100% - 32px, 1100px); }
+
+        .hero { padding: 36px 0 52px; }
+
+        h1 {
+          font-size: clamp(34px, 9.5vw, 46px);
+          line-height: 1.1;
+        }
+
+        .hero-sub { font-size: 16px; margin-top: 16px; }
+
+        .button { width: 100%; min-height: 54px; margin-top: 22px; }
+
+        .perks {
+          grid-template-columns: 1fr;
+          gap: 9px;
+          margin-top: 22px;
+        }
+
+        .anna-photo img { height: 420px; }
+        .anna-photo { border-radius: 28px; }
+
+        .second { padding: 44px 0 56px; }
+
+        .cols-2 { grid-template-columns: 1fr; gap: 28px; }
+
+        .button-ghost { width: 100%; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+        .fade-in { opacity: 1; transform: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <div>
+        <img
+          src="https://mc.yandex.ru/watch/109372899"
+          style="position: absolute; left: -9999px"
+          alt=""
+        />
+      </div>
+    </noscript>
+
+    <main>
+      <!-- ── ЭКРАН 1 ── -->
+      <section class="hero" aria-label="Снижение веса без диет">
+        <div class="container hero-grid">
+
+          <div class="hero-copy">
+            <h1 class="fade-in">
+              Снижение веса <span class="accent">без диет, срывов</span><br>и отдельного меню от семьи
+            </h1>
+            <p class="hero-sub fade-in d1">
+              Узнайте почему вес не уходит даже если стараетесь — и как это изменить без жёстких диет и подсчёта калорий
+            </p>
+            <a
+              class="button fade-in d2"
+              href="https://max.ru/id720409313406_biz"
+              target="_blank"
+              rel="noopener noreferrer"
+              onclick="ym(109372899,'reachGoal','hero_cta')"
+            >
+              Перейти в канал МАХ <span aria-hidden="true">→</span>
+            </a>
+            <ul class="perks fade-in d3" aria-label="Преимущества">
+              <li>Без жёстких запретов</li>
+              <li>Обычная еда для всей семьи</li>
+              <li>Без срывов и чувства вины</li>
+              <li>Поддержка и личные ответы</li>
+            </ul>
+          </div>
+
+          <div class="anna-wrap fade-in d1" aria-label="Анна">
+            <div class="anna-photo">
+              <img
+                src="%D1%84%D0%BE%D1%82%D0%BE/IMG_20260523_022005%20%282%29.png"
+                alt="Анна Николайчук"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── ЭКРАН 2 ── -->
+      <section class="second" aria-label="Почему не уходит вес">
+        <div class="container second-inner">
+
+          <div class="cols-2">
+            <div class="why-block fade-in">
+              <h3>Почему вес не уходит, даже если вы стараетесь</h3>
+              <ul class="check-list" role="list">
+                <li>
+                  <span class="icon icon-no">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                  </span>
+                  Строгие диеты вызывают срывы и возврат веса
+                </li>
+                <li>
+                  <span class="icon icon-no">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                  </span>
+                  Сложные правила невозможно соблюдать постоянно
+                </li>
+                <li>
+                  <span class="icon icon-no">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                  </span>
+                  Отдельное меню от семьи изматывает за неделю
+                </li>
+                <li>
+                  <span class="icon icon-no">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                  </span>
+                  Подсчёт калорий занимает время и вызывает стресс
+                </li>
+              </ul>
+            </div>
+
+            <div class="why-block fade-in d1">
+              <h3>Как работает система без диет</h3>
+              <ul class="check-list" role="list">
+                <li>
+                  <span class="icon icon-yes">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m5 12 4 4L19 6"/></svg>
+                  </span>
+                  Никаких строгих запретов — обычная еда, которую вы любите
+                </li>
+                <li>
+                  <span class="icon icon-yes">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m5 12 4 4L19 6"/></svg>
+                  </span>
+                  Понятные принципы вместо сложных правил и подсчётов
+                </li>
+                <li>
+                  <span class="icon icon-yes">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m5 12 4 4L19 6"/></svg>
+                  </span>
+                  Одно меню для всей семьи — никакого отдельного стола
+                </li>
+                <li>
+                  <span class="icon icon-yes">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m5 12 4 4L19 6"/></svg>
+                  </span>
+                  Стабильный результат без стресса и срывов
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bottom-cta-row fade-in d2">
+            <p>Возможно, вам не нужна ещё одна диета — возможно, нужен спокойный подход, который можно сохранить в обычной жизни.</p>
+            <div class="cta-buttons">
+              <a
+                class="button"
+                href="https://max.ru/id720409313406_biz"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="ym(109372899,'reachGoal','second_cta')"
+              >
+                Перейти в канал МАХ <span aria-hidden="true">→</span>
+              </a>
+              <a
+                class="button-ghost"
+                href="https://edimistroineem.ru/story.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="ym(109372899,'reachGoal','story_cta')"
+              >
+                Прочитать историю Анны
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-links">
+        <a href="../privacy.html">Политика конфиденциальности</a>
+        <a href="../privacy.html">Пользовательское соглашение</a>
+        <a href="../personal-data-consent.html">Согласие на обработку данных</a>
+        <a href="https://max.ru/id720409313406_biz" target="_blank" rel="noopener noreferrer">Контакты</a>
+      </div>
+    </footer>
+
+    <script>
+      const items = document.querySelectorAll(".fade-in");
+
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("is-visible");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -6% 0px" }
+        );
+        items.forEach((el) => io.observe(el));
+      } else {
+        items.forEach((el) => el.classList.add("is-visible"));
+      }
+
+      const revealVisible = () => {
+        items.forEach((el) => {
+          const r = el.getBoundingClientRect();
+          if (r.top < window.innerHeight * 0.96) el.classList.add("is-visible");
+        });
+      };
+      revealVisible();
+      window.addEventListener("load", revealVisible, { once: true });
+    </script>
+  </body>
+</html>
