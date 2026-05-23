@@ -90,10 +90,10 @@
 
       /* ── SCREEN 1: HERO ── */
       .hero {
-        min-height: 100svh;
+        min-height: auto;
         display: grid;
         align-items: center;
-        padding: clamp(40px, 5vw, 72px) 0 clamp(80px, 10vw, 130px);
+        padding: clamp(24px, 3.5vw, 44px) 0 clamp(18px, 3vw, 32px);
         background:
           radial-gradient(ellipse 60% 50% at 100% 0%, rgba(176, 110, 255, 0.07), transparent),
           radial-gradient(ellipse 50% 60% at 0% 85%, rgba(53, 184, 189, 0.05), transparent),
@@ -136,7 +136,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 40px;
+        gap: clamp(22px, 3vw, 32px);
         min-width: 0;
         width: 100%;
       }
@@ -174,7 +174,7 @@
         font-weight: 540;
         line-height: 1.2;
         max-width: 100%;
-        width: fit-content;
+        width: min(100%, 540px);
         transition: transform 230ms var(--ease), box-shadow 230ms var(--ease);
       }
 
@@ -187,7 +187,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 12px 28px;
-        margin: 52px 0 0;
+        margin: 28px 0 0;
         padding: 0;
         list-style: none;
         max-width: 520px;
@@ -248,7 +248,7 @@
       .second {
         display: grid;
         align-items: start;
-        padding: clamp(96px, 11vw, 140px) 0 clamp(72px, 8vw, 100px);
+        padding: clamp(50px, 6vw, 76px) 0 clamp(52px, 7vw, 84px);
         background: var(--bg);
       }
 
@@ -320,7 +320,7 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 72px;
+        gap: clamp(28px, 5vw, 44px);
       }
 
       .bottom-cta-row p {
