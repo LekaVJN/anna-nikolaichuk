@@ -2670,20 +2670,20 @@
     <script>
       const IMAGE_ASSETS = {
         IMAGE_SITE_LOGO: "foto/лого.svg",
-        IMAGE_HERO_BACKGROUND: "foto/ChatGPT Image 14 мая 2026 г., 07_55_28.png",
-        IMAGE_HERO_PERSON: "foto/anna1.png",
+        IMAGE_HERO_BACKGROUND: "foto/optimized-main/hero-bg.webp",
+        IMAGE_HERO_PERSON: "foto/optimized-main/hero-person.webp",
         IMAGE_REVIEW_SCREEN_1: "foto/Отзывы/photo_2025-03-24_00-11-35.jpg",
         IMAGE_REVIEW_SCREEN_2: "foto/Отзывы/photo_2025-03-26_16-20-45.jpg",
         IMAGE_REVIEW_SCREEN_3: "foto/Отзывы/photo_2025-03-27_13-21-45.jpg",
         IMAGE_REVIEW_SCREEN_4: "foto/Отзывы/photo_2025-04-11_18-13-34.jpg",
-        IMAGE_SUPPORT_LAVANDA: "foto/Lavand.png?v=20260514-1830",
-        IMAGE_PROGRAM_EXPEDITION: "foto/exp.png",
-        IMAGE_ABOUT_ANNA: "foto/anna2.png",
-        IMAGE_FINAL_FLOWERS: "foto/ChatGPT Image 14 мая 2026 г., 08_23_35.png",
-        IMAGE_TRUST_STAT_1: "foto/bul1.png",
-        IMAGE_TRUST_STAT_2: "foto/bul2.png",
-        IMAGE_TRUST_STAT_3: "foto/bul3.png",
-        IMAGE_TRUST_STAT_4: "foto/bul4.png",
+        IMAGE_SUPPORT_LAVANDA: "foto/optimized-main/support-lavanda.webp",
+        IMAGE_PROGRAM_EXPEDITION: "foto/optimized-main/program-exp.webp",
+        IMAGE_ABOUT_ANNA: "foto/optimized-main/about-anna.webp",
+        IMAGE_FINAL_FLOWERS: "foto/optimized-main/final-flowers.webp",
+        IMAGE_TRUST_STAT_1: "foto/optimized-main/trust-stat-1.webp",
+        IMAGE_TRUST_STAT_2: "foto/optimized-main/trust-stat-2.webp",
+        IMAGE_TRUST_STAT_3: "foto/optimized-main/trust-stat-3.webp",
+        IMAGE_TRUST_STAT_4: "foto/optimized-main/trust-stat-4.webp",
         ICON_MAX_LOGO: "foto/Логотип_MAX.svg.png",
         ICON_TELEGRAM: "foto/free-icon-telegram-5968804.png",
       };
@@ -2697,6 +2697,12 @@
             textContent: `${key}: добавить изображение`,
           }));
           return;
+        }
+        image.decoding = "async";
+        if (!["IMAGE_HERO_BACKGROUND", "IMAGE_HERO_PERSON"].includes(key)) {
+          image.loading = "lazy";
+        } else {
+          image.fetchPriority = "high";
         }
         image.src = src;
       });

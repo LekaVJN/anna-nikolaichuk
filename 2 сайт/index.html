@@ -11,7 +11,7 @@
     <link
       rel="preload"
       as="image"
-      href="%D1%84%D0%BE%D1%82%D0%BE/IMG_20260523_022005%20%282%29.png"
+      href="img/anna5.jpg"
       fetchpriority="high"
     />
     <!-- Yandex.Metrika counter -->
@@ -55,10 +55,10 @@
         --text: #4f4860;
         --muted: #9590a0;
         --line: rgba(97, 83, 124, 0.12);
-        --max: #7c57f5;
-        --max-2: #b06eff;
-        --aqua: #35b8bd;
-        --glow: 0 18px 52px rgba(124, 87, 245, 0.28);
+        --max: #7262b3;
+        --max-2: #9e82cc;
+        --aqua: #4ab5b9;
+        --glow: 0 18px 52px rgba(114, 98, 179, 0.2);
         --shadow: 0 24px 72px rgba(44, 36, 63, 0.1);
         --radius: 28px;
         --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -83,8 +83,9 @@
       p, h1, h2, h3 { margin: 0; }
 
       .container {
-        width: min(1100px, calc(100% - 40px));
+        width: min(1100px, calc(100vw - 40px));
         margin-inline: auto;
+        min-width: 0;
       }
 
       /* ── SCREEN 1: HERO ── */
@@ -103,7 +104,8 @@
         display: grid;
         grid-template-columns: 1fr min(46%, 480px);
         gap: clamp(32px, 6vw, 80px);
-        align-items: center;
+        align-items: start;
+        min-width: 0;
       }
 
       h1 {
@@ -113,6 +115,7 @@
         line-height: 1.06;
         text-wrap: balance;
         max-width: 640px;
+        overflow-wrap: break-word;
       }
 
       h2 {
@@ -125,11 +128,17 @@
 
       .accent { color: var(--max); }
 
+      .hero-line {
+        display: block;
+      }
+
       .hero-copy {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 40px;
+        min-width: 0;
+        width: 100%;
       }
 
       .hero-copy h1 { margin: 0; }
@@ -141,10 +150,12 @@
       .hero-sub {
         margin-top: 0;
         max-width: 540px;
+        width: min(540px, calc(100vw - 40px));
         color: var(--text);
         font-size: clamp(16px, 1.4vw, 20px);
         font-weight: 380;
         line-height: 1.7;
+        overflow-wrap: break-word;
       }
 
       .button {
@@ -162,6 +173,8 @@
         font-size: 16px;
         font-weight: 540;
         line-height: 1.2;
+        max-width: 100%;
+        width: fit-content;
         transition: transform 230ms var(--ease), box-shadow 230ms var(--ease);
       }
 
@@ -200,22 +213,35 @@
         background-size: contain;
       }
 
-      /* Anna photo */
+      /* Anna photo — blended into background */
       .anna-wrap { position: relative; }
 
       .anna-photo {
         position: relative;
-        border-radius: 36px;
         overflow: hidden;
-        box-shadow: var(--shadow);
-        background: var(--bg-2);
+        border-radius: 0;
       }
 
       .anna-photo img {
         width: 100%;
-        height: min(70svh, 580px);
+        height: min(86svh, 720px);
         object-fit: cover;
-        object-position: 50% 15%;
+        object-position: 50% 10%;
+        display: block;
+      }
+
+      /* fade all 4 edges into page background */
+      .anna-photo::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(to right,  var(--bg) 0%, transparent 26%),
+          linear-gradient(to left,   var(--bg) 0%, transparent 22%),
+          linear-gradient(to bottom, var(--bg) 0%, transparent 18%),
+          linear-gradient(to top,    var(--bg) 0%, transparent 32%);
+        pointer-events: none;
+        z-index: 1;
       }
 
       /* ── SCREEN 2: WHY + CTA ── */
@@ -223,9 +249,7 @@
         display: grid;
         align-items: start;
         padding: clamp(96px, 11vw, 140px) 0 clamp(72px, 8vw, 100px);
-        background:
-          radial-gradient(ellipse 70% 50% at 20% 50%, rgba(124, 87, 245, 0.055), transparent),
-          var(--bg-2);
+        background: var(--bg);
       }
 
       .second-inner {
@@ -391,18 +415,35 @@
       }
 
       @media (max-width: 680px) {
-        .container { width: min(100% - 32px, 1100px); }
+        .container { width: min(1100px, calc(100vw - 32px)); }
 
         .hero { padding: 36px 0 52px; }
 
-        h1 {
-          font-size: clamp(34px, 9.5vw, 46px);
-          line-height: 1.1;
+        .hero-copy {
+          max-width: 340px;
         }
 
-        .hero-sub { font-size: 16px; margin-top: 16px; }
+        h1 {
+          font-size: clamp(31px, 8.8vw, 40px);
+          line-height: 1.1;
+          text-wrap: normal;
+        }
 
-        .button { width: 100%; min-height: 54px; margin-top: 22px; }
+        .hero-sub {
+          width: 100%;
+          max-width: 340px;
+          font-size: 16px;
+          margin-top: 16px;
+        }
+
+        .button {
+          align-self: stretch;
+          width: 100%;
+          max-width: 340px;
+          min-height: 54px;
+          margin-top: 22px;
+          padding-inline: 18px;
+        }
 
         .perks {
           grid-template-columns: 1fr;
@@ -447,7 +488,10 @@
 
           <div class="hero-copy">
             <h1 class="fade-in">
-              Снижение веса <span class="accent">без диет, срывов</span><br>и отдельного меню от семьи
+              <span class="hero-line">Снижение веса</span>
+              <span class="hero-line accent">без диет, срывов</span>
+              <span class="hero-line">и отдельного меню</span>
+              <span class="hero-line">от семьи</span>
             </h1>
             <p class="hero-sub fade-in d1">
               Узнайте почему вес не уходит даже если стараетесь — и как это изменить без жёстких диет и подсчёта калорий
@@ -472,7 +516,7 @@
           <div class="anna-wrap fade-in d1" aria-label="Анна">
             <div class="anna-photo">
               <img
-                src="%D1%84%D0%BE%D1%82%D0%BE/IMG_20260523_022005%20%282%29.png"
+                src="img/anna5.jpg"
                 alt="Анна Николайчук"
                 fetchpriority="high"
                 decoding="async"
