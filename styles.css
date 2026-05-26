@@ -4418,8 +4418,19 @@ body.thanks-page {
   box-shadow: 0 18px 38px rgba(124, 85, 239, 0.28);
 }
 
+.test-page .eyebrow,
+.test-page .brand-subtitle,
+.test-page .nav {
+  color: var(--test-muted);
+}
+
+.test-page .brand-name,
+.test-page .nav a:hover {
+  color: var(--test-violet);
+}
+
 .test-main {
-  overflow: hidden;
+  overflow: visible;
 }
 
 .test-hero {
@@ -4532,12 +4543,19 @@ body.thanks-page {
 }
 
 .test-head {
+  position: sticky;
+  top: 104px;
+  z-index: 6;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(180px, 260px);
   gap: 22px;
   align-items: end;
   padding-bottom: clamp(24px, 4vw, 38px);
   border-bottom: 1px solid var(--test-line);
+  border-radius: var(--radius) var(--radius) 0 0;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(246, 239, 255, 0.94));
+  backdrop-filter: blur(14px);
 }
 
 .test-head h2,
@@ -4615,7 +4633,7 @@ body.thanks-page {
   border: 1px solid rgba(124, 85, 239, 0.14);
   border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.78);
-  color: #4b4054;
+  color: #4a3f5f;
   line-height: 1.45;
   cursor: pointer;
   transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
@@ -4719,6 +4737,10 @@ body.thanks-page {
   .test-hero-grid,
   .test-head {
     grid-template-columns: 1fr;
+  }
+
+  .test-head {
+    top: 128px;
   }
 
   .test-progress {
