@@ -4968,6 +4968,27 @@ body.thanks-page {
   line-height: 0.95;
 }
 
+.tariff-old-price {
+  position: relative;
+  color: rgba(53, 33, 15, 0.62);
+  font-family: var(--font-heading);
+  font-size: clamp(25px, 2vw, 32px);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tariff-old-price::after {
+  content: "";
+  position: absolute;
+  left: -6%;
+  right: -6%;
+  top: 52%;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(159, 53, 31, 0.78);
+  transform: rotate(-3deg);
+}
+
 .tariff-price {
   color: var(--tariffs-red);
   font-family: var(--font-heading);
