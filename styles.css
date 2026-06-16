@@ -5364,12 +5364,33 @@ body.thanks-page {
 }
 
 @media (max-width: 640px) {
+  .tariffs-page {
+    overflow-x: hidden;
+  }
+
   .tariffs-page .container {
     width: min(var(--container), calc(100% - 28px));
   }
 
   .tariffs-hero {
     padding-top: 188px;
+  }
+
+  .tariffs-hero-head {
+    max-width: 100%;
+  }
+
+  .tariffs-hero-head h1 {
+    max-width: 340px;
+    margin-inline: auto;
+    font-size: 38px;
+    line-height: 1.08;
+    overflow-wrap: anywhere;
+  }
+
+  .tariffs-hero-head p {
+    max-width: 300px;
+    font-size: 16px;
   }
 
   .tariffs-hero::before,
@@ -5388,6 +5409,10 @@ body.thanks-page {
   }
 
   .tariff-list {
+    font-size: 14px;
+  }
+
+  .tariff-note {
     font-size: 15px;
   }
 
